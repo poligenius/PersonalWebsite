@@ -26,13 +26,24 @@
 		}
 	}
 	.experience {
+		margin-bottom: 2em;
 		.title {
 			text-align: center;
 		}
 		.job {
-			margin: 1em;
+			margin: 2em;
 			p{
 				margin: 0;
+			}
+		}
+	}
+
+	.certifications{
+		margin-top: 2em;
+		.title {
+			text-align: center;
+			p {
+				font-size: 0.9em;
 			}
 		}
 	}
