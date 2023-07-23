@@ -24,3 +24,21 @@
 			text-align: center;
 		}
 	}
+
+	.icon-custom-color-sidebar {
+		color: #ffffff; /* Set initial color, use 'initial' or the default color you want */
+		transition: color 0.2s ease; /* Add a transition for smooth color change */
+	  }
+
+	  .icon-custom-color-sidebar:hover {
+		color: blue; /* Change the color to blue on hover */
+	  }
+
+	  .icon-custom-color-md {
+		color: #000000b0; /* Set initial color, use 'initial' or the default color you want */
+		transition: color 0.2s ease; /* Add a transition for smooth color change */
+	  }
+
+	  .icon-custom-color-md:hover {
+		color: blue; /* Change the color to blue on hover */
+	  }

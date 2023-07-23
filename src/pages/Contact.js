@@ -1,9 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Main from '../layouts/Main';
 import EmailLink from '../components/Contact/EmailLink';
-import ContactIcons from '../components/Contact/ContactIcons';
+
+import data from '../data/contact';
+
+import '../static/css/layout/_footer.scss';
+
+const ContactIcons = () => (
+  <ul className="icons">
+    {data.map((s) => (
+      <li key={s.label}>
+        <a href={s.link}>
+          <FontAwesomeIcon icon={s.icon} className="icon-custom-color-md" />
+        </a>
+      </li>
+    ))}
+  </ul>
+);
 
 const Contact = () => (
   <Main
