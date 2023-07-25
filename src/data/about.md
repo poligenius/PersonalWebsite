@@ -1,4 +1,3 @@
-
 # Intro
 
 Hi, I am Marco, a passionate and curious guy who would love to take actively part in the technology revolution that is shaping the world. This page is dedicated to describing who I am, what I do with my time, and why I do it. So, if you're curious to uncover the life of a crazy and quirky computer engineer, don't hesitate to read a bit about me. Who knows, we might discover some shared passions along the way!
@@ -16,7 +15,7 @@ Of course, my life is not all about work and computer science indeed, I nurture 
 
 # Things that I like
 
-- Cooking (I really love cooking for friends, in particular I like to experiment complex recipes with dough and sourdough like Pizza and Panettone. Have a look at some of my "creatures" in the gallery!)
+- Cooking (I really love cooking for friends, in particular I like to experiment complex recipes with dough and sourdough like Pizza and Panettone. Have a look at some of my "creatures" in the [gallery!](http://localhost:3000/gallery))
 - Preparing cocktails and wine tastings
 - Solve puzzles and play board games (I go crazy for escape rooms)
 - Sports (I've been lucky enough to have practiced a wide array of sports over the years, including beach volley, tennis, soccer, basketball, skiing, swimming, and padel. Unfortunately, I'm terrible at each and every one of them...)

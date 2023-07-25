@@ -1,43 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Markdown from 'markdown-to-jsx';
-
+import GalleryItem from '../components/GalleryItem/GalleryItem';
+import data from '../data/gallery';
 import Main from '../layouts/Main';
+import '../static/css/pages/_gallery.scss'; // Create a CSS file to style the gallery (Gallery.css)
 
-const Gallery = () => {
-  const [markdown, setMarkdown] = useState('');
-
-  useEffect(() => {
-    import('../data/about.md')
-      .then((res) => {
-        fetch(res.default)
-          .then((r) => r.text())
-          .then(setMarkdown);
-      });
-  });
-
-  const count = markdown.split(/\s+/)
-    .map((s) => s.replace(/\W/g, ''))
-    .filter((s) => s.length).length;
-
-  return (
-    <Main
-      title="Gallery"
-      description="Learn about Marco Marini"
-    >
-      <article className="post markdown" id="about">
-        <header>
-          <div className="title">
-            <h2><Link to="/about">About Me</Link></h2>
-            <p>(in about {count} words)</p>
-          </div>
-        </header>
-        <Markdown>
-          {markdown}
-        </Markdown>
-      </article>
-    </Main>
-  );
-};
+const Gallery = () => (
+  <Main
+    title="Gallery"
+    description="Gallery of my favorite pics."
+  >
+    <article className="post" id="gallery">
+      <header>
+        <div className="title">
+          <h2><Link to="/gallery">Some of my fav pics and food</Link></h2>
+        </div>
+      </header>
+      <div className="gallery-container">
+        {data.map((photo) => (
+          <GalleryItem title={photo.title} image={photo.image} />
+        ))}
+      </div>
+    </article>
+  </Main>
+);
 
 export default Gallery;

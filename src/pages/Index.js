@@ -22,6 +22,14 @@ const Index = () => (
         my <Link to="/contact">contacts</Link>.
         Hope you&apos;ll enjoy the site!
       </p>
+      <p>Don&apos;t have time to explore the site? It&apos;s fine, download my compact resume by
+        clicking below.
+      </p>
+      <p>
+        <a href="../data/resume/MarcoMarini_resume.pdf" download>
+          <button type="button">Download Resume</button>
+        </a>
+      </p>
       <p> Source code available <a href="https://github.com/poligenius/PersonalWebsite">here</a>.</p>
     </article>
   </Main>
