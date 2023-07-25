@@ -15,7 +15,7 @@ Of course, my life is not all about work and computer science indeed, I nurture 
 
 # Things that I like
 
-- Cooking (I really love cooking for friends, in particular I like to experiment complex recipes with dough and sourdough like Pizza and Panettone. Have a look at some of my "creatures" in the [gallery!](http://mmarini.it/gallery))
+- Cooking (I really love cooking for friends, in particular I like to experiment complex recipes with dough and sourdough like Pizza and Panettone. Have a look at some of my "creations" in the gallery!)
 - Preparing cocktails and wine tastings
 - Solve puzzles and play board games (I go crazy for escape rooms)
 - Sports (I've been lucky enough to have practiced a wide array of sports over the years, including beach volley, tennis, soccer, basketball, skiing, swimming, and padel. Unfortunately, I'm terrible at each and every one of them...)

@@ -2,11 +2,11 @@
 
 See: [mmarini.it](https://mmarini.it).
 
-My personal website. An [MIT](https://github.com/mldangelo/personal-site/blob/main/LICENSE) licensed, simple, easily modifiable, statically-exportable [React](https://reactjs.org/), [Jamstack](https://jamstack.org/) application that deploys automatically for free using [github pages](https://pages.github.com/). Built using modern javascript, based on [create-react-app](https://github.com/facebook/create-react-app) with [React-Router](https://reactrouter.com/), SCSS, [github actions](https://github.com/features/actions), and many other useful technologies.
+My personal website. An [MIT](https://github.com/poligenius/PersonalWebsite/blob/main/LICENSE) licensed, simple, easily modifiable, statically-exportable [React](https://reactjs.org/), [Jamstack](https://jamstack.org/) application that deploys automatically for free using [github pages](https://pages.github.com/). Built using modern javascript, based on [create-react-app](https://github.com/facebook/create-react-app) with [React-Router](https://reactrouter.com/), SCSS, [github actions](https://github.com/features/actions), and many other useful technologies.
 
 ## Adapting this Project
 
-Building your own personal website from this project can take as little as 30 minutes. Follow the setup instructions below and review **detailed notes and a checklist on adapting this project [here](./docs/adapting-guide.md)**. Please feel free to reach out to me by filing an issue or emailing me at [poligeniushelp@gmail.com](mailto:help@mldangelo.com) for help configuring your project.
+Building your own personal website from this project can take as little as 30 minutes. Follow the setup instructions below and review **detailed notes and a checklist on adapting this project [here](./docs/adapting-guide.md)**. Please feel free to reach out to me by filing an issue or emailing me at [poligeniushelp@gmail.com](mailto:poligeniushelp@gmail.com) for help configuring your project.
 
 ## Dependencies
 
@@ -17,7 +17,7 @@ Tested with: [node](https://nodejs.org/) >= v14 and optional [nvm](https://githu
 To download the repository and install dependencies, run the following commands:
 
 ```bash
-git clone git://github.com/poligenius/PersonalWebsite.git # replace [mldangelo] with your github username if you fork first.
+git clone git://github.com/poligenius/PersonalWebsite.git # replace [poligenius] with your github username if you fork first.
 cd personal-site
 nvm install # this is optional - make sure you're running >= node 14 with `node --version`
 npm install
@@ -54,6 +54,6 @@ However, if you'd like to [offer me](https://paypal.me/MarcoMariniING?country.x=
 
 ## Acknowledgements
 
-* Full acknowledge goes to @ mldangelo I have used great part of his template and his code which was really well made and easy to read, however I wanted to add to the site my own twist making edits like the gallery, colors and resume download option. I future probably I will add other stuff, for this reason I have published the site on my own repo.
+* Full acknowledge goes to [@mldangelo](https://github.com/mldangelo) I have used great part of his template and his code which was really well made and easy to read, however I wanted to add to the site my own twist making edits like the gallery, colors and resume download option. I future probably I will add other stuff, for this reason I have published the site on my own repo.
 * Template based on [Future Imperfect](https://html5up.net/future-imperfect) by [@ajlkn](https://github.com/ajlkn) for [HTML5 UP](html5up.net).
 
