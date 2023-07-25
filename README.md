@@ -54,6 +54,6 @@ However, if you'd like to [offer me](https://paypal.me/MarcoMariniING?country.x=
 
 ## Acknowledgements
 
-* Full acknowledge goes to [@mldangelo](https://github.com/mldangelo) I have used great part of his template and his code which was really well made and easy to read, however I wanted to add to the site my own twist making edits like the gallery, colors and resume download option. I future probably I will add other stuff, for this reason I have published the site on my own repo.
+* Full acknowledge goes to [@mldangelo](https://github.com/mldangelo) I have used great part of his template and his code which was really well made and easy to read, however I wanted to add to the site my own twist making edits like the gallery, colors and resume download option. In future probably I will add other stuff, for this reason I have published the site on my own repo.
 * Template based on [Future Imperfect](https://html5up.net/future-imperfect) by [@ajlkn](https://github.com/ajlkn) for [HTML5 UP](html5up.net).
 
