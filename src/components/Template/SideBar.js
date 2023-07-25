@@ -37,7 +37,7 @@ const SideBar = () => (
 
     <section id="footer">
       <ContactIcons />
-      <p className="copyright" style={{ color: '#ffffff' }}>&copy; Marco Marini <Link to="/">mmarini.com</Link></p>
+      <p className="copyright" style={{ color: '#ffffff' }}>&copy; Marco Marini <Link to="/">mmarini.it</Link></p>
     </section>
   </section>
 );
