@@ -15,9 +15,9 @@
 		@include vendor('justify-content', 'space-between');
 		background-color: _palette(bg);
 		border-bottom: solid 1px _palette(border);
-		height: 4.5em;
+		height: 3.5em;
 		left: 0;
-		line-height: 4.5em;
+		line-height: 3.5em;
 		position: fixed;
 		top: 0;
 		width: 100%;
@@ -158,6 +158,12 @@
 				}
 			}
 		}
+
+		@media (max-width: 768px) { /* Adjust the breakpoint to your preference */
+			/* Header size for mobile version */
+			height: 4em;
+			line-height: 4em;
+		  }
 	}
 
 	/* Position and sizing of burger button */
