@@ -18,9 +18,9 @@ const Index = () => (
         Here I have curated a collection
         of <Link to="/about">my passions</Link>, <Link to="/resume">working experiences</Link> and <Link to="/projects">projects</Link>, giving
         you a glimpse into my life.
-        Don&apos;t forget also to check <Link to="/stats">site statistics</Link> and
-        my <Link to="/contact">contacts</Link>.
-        Hope you&apos;ll enjoy the site!
+        Don&apos;t forget also to check <Link to="/stats">site statistics</Link>,
+        my <Link to="/contact">contacts</Link> and, if you have time to waste, have fun in visiting my <Link to="/gallery">gallery</Link>!
+        Hope you&apos;ll enjoy the site.
       </p>
       <p>Don&apos;t have time to explore the site? It&apos;s fine, download my compact resume by
         clicking below.

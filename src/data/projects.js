@@ -1,7 +1,7 @@
 // TODO Add a couple lines about each project
 const data = [
   {
-    title: 'Adrenalina',
+    title: 'Adrenaline',
     subtitle: '2019 bachelor degree thesis\' project',
     link: 'https://github.com/lentinip/ing-sw-2019-Lentini-Marazzi-Marini',
     image: '/images/projects/adrenaline.webp',

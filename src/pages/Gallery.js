@@ -13,7 +13,10 @@ const Gallery = () => (
     <article className="post" id="gallery">
       <header>
         <div className="title">
-          <h2><Link to="/gallery">Some of my fav pics and food</Link></h2>
+          <h2><Link to="/gallery">GALLERY</Link></h2>
+          <p>A collection of photos of the beatiful places I have visited and some
+            cooking experiments
+          </p>
         </div>
       </header>
       <div className="gallery-container">
