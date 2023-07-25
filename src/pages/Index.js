@@ -26,11 +26,11 @@ const Index = () => (
         clicking below.
       </p>
       <p>
-        <a href="../data/resume/MarcoMarini_resume.pdf" download>
-          <button type="button">Download Resume</button>
+        <a href="/MarcoMarini_resume.pdf" download>
+          <button type="button" style={{ background: '#ffffff', border: '1px solid #ffffff' }}>Download Resume</button>
         </a>
       </p>
-      <p> Source code available <a href="https://github.com/poligenius/PersonalWebsite">here</a>.</p>
+      <p> Site&apos;s source code available <a href="https://github.com/poligenius/PersonalWebsite">here</a>.</p>
     </article>
   </Main>
 );
