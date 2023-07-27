@@ -19,7 +19,7 @@ Of course, my life is not all about work and computer science indeed, I nurture 
 - Preparing cocktails and wine tastings
 - Solve puzzles and play board games (I go crazy for escape rooms)
 - Sports (I've been lucky enough to have practiced a wide array of sports over the years, including beach volley, tennis, soccer, basketball, skiing, swimming, and padel. Unfortunately, I'm terrible at each and every one of them...)
-- Playing the piano (I have took piano lessons for 6 years, so fell free to chat me for a jam session, but please don't ask me to sing eheh)
+- Playing the piano (I have taken piano lessons for 6 years, so feel free to chat me for a jam session, but please don't ask me to sing eheh)
 - Nerd stuff (videogames, anime, manga and Star Wars)
 - Movies and tv series
 - [Photography](https://www.instagram.com/marcobalenoo/) (I always travel with my Nikon in order to take pictures of the beautiful places and peoples that I have the pleasure to visit, in 2015 I won Liliana Urtamonti [still nature](https://www.instagram.com/p/1Ql0DrivyoekSE2An1JIdCRMaRkLcDW62WAho0/) photography contest)
@@ -29,17 +29,17 @@ Of course, my life is not all about work and computer science indeed, I nurture 
 
 I was born in Monza (Italy) and have always lived near Milan.
 However, I have been fortunate enough to have two incredible parents who made me travel a lot.
-By the age of 21, I had already tasted the flavors of different cultures and explored various countries, including Japan, the United States, England, Spain, Portugal, Croatia, France, Cuba, and Tunisy. These experiences ignited in me a deep love for the world and a dream to explore it in its entirety. To cherish these memories and motivate myself to travel every year, I've dedicated this paragraph to documenting the places I have the privilege to visit annually:
+By the age of 21, I had already tasted the flavors of different cultures and explored various countries, including Japan, the United States, England, Spain, Portugal, Croatia, France, Cuba, and Tunisy. These experiences ignited in me a deep love for the world and a dream to explore it in its entirety. To cherish these memories and motivate myself to travel every year, I've dedicated this paragraph to documenting the places I have the privilege to visit each year:
 
 - 2019 - I have seen the wonders of Japan
 - 2020 - Has been an Italian summer, I explored with my girlfriend the whole Elba island and then we moved to the Tuscan hinterland to explore Florence
 - 2021 - Sicily (Egadi and Trapani) and Switzerland (Grindelwald, Berna and a lot of hikings)
 - 2022 - Sardinia and Ibiza (the wild side) and Venice in December
-- 2023 - A lot of travels this year! Umbria, wine tastings in Tuscany, Nizza, Paris, Amsterdam, Berlin, Monaco, Copenhagen and the Norway's fjords (thanks Interrail!)
+- 2023 - A lot of travels this year! Umbria, wine tastings in Tuscany, Nice, Paris, Amsterdam, Berlin, Munich, Copenhagen and the Norway's fjords (thanks Interrail!)
 
 # Fun facts
 
-- I have on my balcony a gas hoven who can reach up to 500 degrees, which I use to cook my pizzas.
+- I have on my balcony a gas oven who can reach up to 500°C, which I use to cook my pizzas.
 - At the age of 15, I developed a passion for magic and since then, I've amassed a collection of several hundred decks of cards, some of which are now considered extremely rare. If you scroll through my Instagram feed, you might come across some photos of my [decks](https://www.instagram.com/p/BPXnn4jgtAs/) and even a few [magic tricks](https://www.instagram.com/p/BNj0YD5jYxE/) that could leave you amazed...
 - As you might have understood, I love collecting stuff, I have a collection of cards, board games, Star Wars legos, puzzles and also a small collection of Gins (that will last until I will drink them all).
 - In 2022, I obtained first level sommelier certificate.
