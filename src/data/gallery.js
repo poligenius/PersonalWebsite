@@ -59,6 +59,21 @@ const data = [
     title: 'swiss_mountains',
     image: '/images/gallery/swiss_mountains.png',
   },
+  {
+    id: 13,
+    title: 'norway',
+    image: '/images/gallery/norway.png',
+  },
+  {
+    id: 14,
+    title: 'fjords',
+    image: '/images/gallery/fjords.png',
+  },
+  {
+    id: 15,
+    title: 'berlin',
+    image: '/images/gallery/berlin.png',
+  },
 ];
 
 export default data;

@@ -9,7 +9,7 @@ const SideBar = () => (
   <section id="sidebar">
     <section id="intro">
       <Link to="/" className="logo">
-        <img src={`${PUBLIC_URL}/images/me.png`} alt="" />
+        <img src={`${PUBLIC_URL}/images/sagoma.png`} alt="" />
       </Link>
       <header>
         <h2 style={{ color: '#ffffff' }}>Marco Marini</h2>

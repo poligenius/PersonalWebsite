@@ -42,7 +42,7 @@ const skills = [
   {
     title: 'Kubernetes',
     competency: 1,
-    category: ['Tools', 'Data Engineering'],
+    category: ['Tools', 'Data Engineering', 'Data Science'],
   },
   {
     title: 'Numpy',
@@ -92,7 +92,7 @@ const skills = [
   {
     title: 'Pandas',
     competency: 5,
-    category: ['Data Engineering', 'ML Engineering', 'Python'],
+    category: ['Data Engineering', 'ML Engineering', 'Python', 'Data Science'],
   },
   {
     title: 'Matplotlib',
@@ -102,7 +102,7 @@ const skills = [
   {
     title: 'Scikit-Learn',
     competency: 4,
-    category: ['Data Engineering', 'ML Engineering', 'Python'],
+    category: ['Data Engineering', 'ML Engineering', 'Python', 'Data Science'],
   },
   {
     title: 'Spark',
