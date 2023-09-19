@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import Main from '../layouts/Main';
@@ -29,7 +30,13 @@ const Resume = () => (
     title="Resume"
     description="Marco Marini's resume."
   >
-    <article className="post" id="resume">
+    <motion.article
+      className="post"
+      id="resume"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <header>
         <div className="title">
           <h2><Link to="resume">Resume</Link></h2>
@@ -41,10 +48,12 @@ const Resume = () => (
           </div>
         </div>
       </header>
-      {Object.entries(sections).map(([name, Section]) => (
-        <Section key={name} />
-      ))}
-    </article>
+      <div className="resume-container">
+        {Object.entries(sections).map(([name, Section]) => (
+          <Section key={name} />
+        ))}
+      </div>
+    </motion.article>
   </Main>
 );
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import Main from '../layouts/Main';
@@ -11,15 +12,23 @@ const Stats = () => (
     title="Stats"
     description="Some statistics about myself and my site"
   >
-    <article className="post" id="stats">
+    <motion.article
+      className="post"
+      id="stats"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <header>
         <div className="title">
           <h2><Link to="/stats">Stats</Link></h2>
         </div>
       </header>
-      <Personal />
-      <Site />
-    </article>
+      <div className="markdown-container">
+        <Personal />
+        <Site />
+      </div>
+    </motion.article>
   </Main>
 );
 

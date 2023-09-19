@@ -23,11 +23,11 @@ const work = [
     various industries, such as finance, technology, healthcare, consumer goods, and more. In Price I joined
     the Data & Analytics team, working on a great variety of projects to:`,
     highlights: [
-      'Redesign and orchestrate the client\'s Data pipelines',
-      'Ingest large data flows',
-      'Develop backend and frontend of different applications to compute key financial risk indicators',
-      'Project clustering algorithms to spot users with anomalous accesses inside the client\'s systems',
-      'Advice clients during the architectural decision phase of Machine Learning projects',
+      'Redesign and orchestrate the client\'s Data pipelines.',
+      'Ingest large data flows.',
+      'Develop backend and frontend of different applications to compute key financial risk indicators.',
+      'Project clustering algorithms to spot users with anomalous accesses inside the client\'s systems.',
+      'Advice clients during the architectural decision phase of Machine Learning projects.',
       'Hold many hours of lecture during a collaboration with H-Farm college teaching students the foundations of Spark, Big Data and SQL.',
     ],
   },

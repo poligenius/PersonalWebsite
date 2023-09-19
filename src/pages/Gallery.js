@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import GalleryItem from '../components/GalleryItem/GalleryItem';
 import data from '../data/gallery';
@@ -10,7 +11,13 @@ const Gallery = () => (
     title="Gallery"
     description="Gallery of my favorite pics."
   >
-    <article className="post" id="gallery">
+    <motion.article
+      className="post"
+      id="gallery"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <header>
         <div className="title">
           <h2><Link to="/gallery">GALLERY</Link></h2>
@@ -24,7 +31,7 @@ const Gallery = () => (
           <GalleryItem title={photo.title} image={photo.image} />
         ))}
       </div>
-    </article>
+    </motion.article>
   </Main>
 );
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Main from '../layouts/Main';
@@ -27,7 +27,13 @@ const Contact = () => (
     title="Contact"
     description="Contact Marco Marini via email marco.97marini@gmail.com"
   >
-    <article className="post" id="contact">
+    <motion.article
+      className="post"
+      id="contact"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <header>
         <div className="title">
           <h2><Link to="/contact">Contact</Link></h2>
@@ -38,7 +44,7 @@ const Contact = () => (
         <EmailLink />
       </div>
       <ContactIcons />
-    </article>
+    </motion.article>
   </Main>
 );
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Markdown from 'markdown-to-jsx';
-
+import { motion } from 'framer-motion';
 import Main from '../layouts/Main';
 
 const About = () => {
@@ -25,17 +25,27 @@ const About = () => {
       title="About"
       description="Learn about Marco Marini"
     >
-      <article className="post markdown" id="about">
+      <motion.article
+        className="post markdown"
+        id="about"
+        initial={{ opacity: 0, duration: 2 }}
+        animate={{ opacity: 1, duration: 2 }}
+        exit={{ opacity: 0, duration: 2 }}
+      >
         <header>
-          <div className="title">
+          <div
+            className="title"
+          >
             <h2><Link to="/about">About Me</Link></h2>
             <p>(in about {count} words)</p>
           </div>
         </header>
-        <Markdown>
-          {markdown}
-        </Markdown>
-      </article>
+        <div className="markdown-container">
+          <Markdown>
+            {markdown}
+          </Markdown>
+        </div>
+      </motion.article>
     </Main>
   );
 };

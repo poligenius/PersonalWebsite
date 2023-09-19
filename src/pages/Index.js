@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import Main from '../layouts/Main';
@@ -8,7 +9,13 @@ const Index = () => (
     description={"Marco Marini's personal website. Milan based Politecnico graduate, "
     + 'Machine Learning and AI engineer at PwC.'}
   >
-    <article className="post" id="index">
+    <motion.article
+      className="post"
+      id="index"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <header>
         <div className="title">
           <h2><Link to="/">About this site</Link></h2>
@@ -31,7 +38,7 @@ const Index = () => (
         </a>
       </p>
       <p> Site&apos;s source code available <a href="https://github.com/poligenius/PersonalWebsite">here</a>.</p>
-    </article>
+    </motion.article>
   </Main>
 );
 

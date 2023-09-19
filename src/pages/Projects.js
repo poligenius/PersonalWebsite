@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import Main from '../layouts/Main';
@@ -11,20 +12,28 @@ const Projects = () => (
     title="Projects"
     description="Learn about Marco Marini's projects."
   >
-    <article className="post" id="projects">
+    <motion.article
+      className="post"
+      id="projects"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <header>
         <div className="title">
           <h2><Link to="/projects">Projects</Link></h2>
           <p>A selection of the projects that I&apos;m more proud of</p>
         </div>
       </header>
-      {data.map((project) => (
-        <Cell
-          data={project}
-          key={project.title}
-        />
-      ))}
-    </article>
+      <div className="markdown-container">
+        {data.map((project) => (
+          <Cell
+            data={project}
+            key={project.title}
+          />
+        ))}
+      </div>
+    </motion.article>
   </Main>
 );
 
