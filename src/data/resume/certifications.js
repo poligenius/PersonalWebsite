@@ -25,6 +25,12 @@ const certifications = [
     url: 'https://verify.skilljar.com/c/42kbrbf6i9cq',
     achievedDate: '2023',
   },
+  {
+    platform: 'Palantir',
+    name: 'Data Analyst',
+    url: 'https://verify.skilljar.com/c/8po7zjfgt25o',
+    achievedDate: '2023',
+  },
 ];
 
 export default certifications;
