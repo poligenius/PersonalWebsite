@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'; // You can keep axios for making requests to the serverless function
 import '../../static/css/pages/_chat.scss';
 
-const endpoint = 'https://mmarini.it/.netlify/functions/gpt3'; // Update the endpoint to your serverless function
+const endpoint = '/.netlify/functions/gpt3'; // Update the endpoint to your serverless function
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
