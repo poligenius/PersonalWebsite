@@ -1,35 +1,39 @@
-// serverlessFunction.js
+export default async () => {
+  // Get the request from the request query string, or use a default
+  const pie =
+    event.queryStringParameters?.pie ??
+    "something inspired by a springtime garden";
 
-const axios = require('axios');
-
-exports.handler = async (event) => {
-  try {
-    const userQuery = event.queryStringParameters.query; // Retrieve user's query from the client
-    const gptApiKey = process.env.GPT3_API_KEY; // Retrieve your GPT-3 API key from environment variables
-
-    // Make a request to the GPT-3 API
-    const response = await axios.post(
-      'https://api.openai.com/v1/chat/completions',
-      {
-        query: userQuery,
-        // Other GPT-3 parameters
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${gptApiKey}`,
+  // The response body returned from "fetch" is a "ReadableStream",
+  // so you can return it directly in your streaming response
+  const res = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      // Set this environment variable to your own key
+      Authorization: `Bearer ${process.env.GPT3_API_KEY}`
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a baker. The user will ask you for a pie recipe. You will respond with the recipe. Use markdown to format your response"
         },
-      }
-    );
+        // Use "slice" to limit the length of the input to 500 characters
+        { role: "user", content: pie.slice(0, 500) }
+      ],
+      // Use server-sent events to stream the response
+      stream: true
+    })
+  });
 
-    // Process the GPT-3 response and return it to the client
-    return {
-      statusCode: 200,
-      body: JSON.stringify(response.data),
-    };
-  } catch (error) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Internal Server Error' }),
-    };
-  }
+  return new Response(body, {
+    headers: {
+      // This is the mimetype for server-sent events
+      "content-type": "text/event-stream"
+    }
+  });
 };
+
