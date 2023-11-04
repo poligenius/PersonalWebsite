@@ -9,7 +9,7 @@ exports.handler = async (event) => {
 
     // Make a request to the GPT-3 API
     const response = await axios.post(
-      'https://api.openai.com/v1/...',
+      'https://api.openai.com/v1/chat/completions',
       {
         query: userQuery,
         // Other GPT-3 parameters
