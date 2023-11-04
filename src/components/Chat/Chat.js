@@ -14,11 +14,21 @@ const Chat = () => {
     // Add the user's message to the chat interface
     setMessages([...messages, { role: 'user', content: inputMessage }]);
 
-    fetch(endpoint)
-      .then((res) => (res.json()))
-      .then((data) => {
-        const botReply = data;
-        setMessages([...messages, { role: 'bot', content: botReply }]);
+    // Send the user's message to the serverless function
+    fetch(endpoint, {
+      method: 'POST',
+      body: JSON.stringify({ question: inputMessage }), // Send the question in the request body
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.text()) // Parse the response as text
+      .then((botReply) => {
+        // Create a new message object for the bot's reply
+        const botMessage = { role: 'bot', content: botReply };
+
+        // Add the bot's reply to the chat interface
+        setMessages((prevMessages) => [...prevMessages, botMessage]);
       });
 
     setInputMessage(''); // Clear the input field
