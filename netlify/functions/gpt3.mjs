@@ -11,7 +11,7 @@ export default async () => {
     headers: {
       "Content-Type": "application/json",
       // Set this environment variable to your own key
-      Authorization: `Bearer ${Netlify.env.get("GPT3_API_KEY")}`
+      Authorization: `Bearer ${process.env.GPT3_API_KEY}`
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
