@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // You can keep axios for making requests to the serverless function
+// import axios from 'axios'; // You can keep axios for making requests to the serverless function
 import '../../static/css/pages/_chat.scss';
 
 const endpoint = '/.netlify/functions/gpt3'; // Update the endpoint to your serverless function
@@ -14,16 +14,11 @@ const Chat = () => {
     // Add the user's message to the chat interface
     setMessages([...messages, { role: 'user', content: inputMessage }]);
 
-    // Send the user's message to the serverless function
-    axios
-      .post(endpoint, { inputMessage })
-      .then((response) => {
-        const { botReply } = response.data;
-        // Add the bot's reply to the chat interface
+    fetch(endpoint)
+      .then((res) => (res.json()))
+      .then((data) => {
+        const botReply = data;
         setMessages([...messages, { role: 'bot', content: botReply }]);
-      })
-      .catch((error) => {
-        console.error('Error sending message to the serverless function: ', error);
       });
 
     setInputMessage(''); // Clear the input field
