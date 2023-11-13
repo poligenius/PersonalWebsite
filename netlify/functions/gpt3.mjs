@@ -16,26 +16,6 @@ exports.handler = async (event, context) => {
     // Add a delay between requests (e.g., 1 second) to avoid rate limiting
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "system",
-            content: "You are the personal assistant for the resume website of Marco Marini, a cool Machine Learning Engineer."+
-            "Your task is to answer questions regarding Marco which can be made by potential employers using only the" +
-            " information you will be provided. Of course you have to reply always showing that Marco would be a perfect" +
-            " fit for whatever position they are looking for.",
-          },
-        ],
-      }),
-    });
-
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {

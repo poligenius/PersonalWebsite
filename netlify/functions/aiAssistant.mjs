@@ -1,5 +1,13 @@
 // import the required dependencies
-const OpenAI = require("openai");
+const Configuration = require("openai");
+const OpenAIApi = require("openai");
+
+// Create a OpenAI connection
+const secretKey = process.env.OPENAI_API_KEY;
+const configuration = new Configuration({
+  apiKey: secretKey,
+});
+const openai = new OpenAIApi(configuration);
 
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
@@ -9,12 +17,6 @@ exports.handler = async (event, context) => {
     };
   }
   try {
-    // Create a OpenAI connection
-    const secretKey = process.env.OPENAI_API_KEY;
-    const openai = new OpenAI({
-      apiKey: secretKey,
-    });
-
     const requestBody = JSON.parse(event.body);
     const userQuestion = requestBody.question;
 
