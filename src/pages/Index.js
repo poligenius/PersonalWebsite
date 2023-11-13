@@ -39,6 +39,9 @@ const Index = () => (
         </a>
       </p>
       <p> Site&apos;s source code available <a href="https://github.com/poligenius/PersonalWebsite">here</a>.</p>
+      <p> Notes: I&apos;m developing my virtual AI assistant, it is still a work in progress,
+        so don&apos;t get mad if it gives you wrong answers or error messages.
+      </p>
     </motion.article>
     <ChatButton />
   </Main>

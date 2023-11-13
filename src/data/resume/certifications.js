@@ -31,6 +31,12 @@ const certifications = [
     url: 'https://verify.skilljar.com/c/8po7zjfgt25o',
     achievedDate: '2023',
   },
+  {
+    platform: 'Palantir',
+    name: 'Solution Architect',
+    url: 'https://verify.skilljar.com/c/yy4f9p52gbfr',
+    achievedDate: '2023',
+  },
 ];
 
 export default certifications;

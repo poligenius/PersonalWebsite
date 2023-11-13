@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import axios from 'axios'; // You can keep axios for making requests to the serverless function
 import '../../static/css/pages/_chat.scss';
 
 const endpoint = '/.netlify/functions/gpt3'; // Update the endpoint to your serverless function
@@ -26,7 +25,6 @@ const Chat = () => {
       .then((botReply) => {
         // Create a new message object for the bot's reply
         const botMessage = { role: 'bot', content: botReply };
-
         // Add the bot's reply to the chat interface
         setMessages((prevMessages) => [...prevMessages, botMessage]);
       });
