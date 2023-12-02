@@ -1,13 +1,6 @@
 // import the required dependencies
-const Configuration = require("openai");
-const OpenAIApi = require("openai");
+const fetch = require('node-fetch')
 
-// Create a OpenAI connection
-const secretKey = process.env.OPENAI_API_KEY;
-const configuration = new Configuration({
-  apiKey: secretKey,
-});
-const openai = new OpenAIApi(configuration);
 
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
@@ -16,78 +9,166 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ error: 'Method not allowed' }),
     };
   }
+
+  const requestBody = JSON.parse(event.body);
+  const userQuestion = requestBody.question;
+
   try {
-    const requestBody = JSON.parse(event.body);
-    const userQuestion = requestBody.question;
-
-    const assistant = await openai.beta.assistants.create({
-      name: "Jarvis",
-      instructions:
-        "You are the personal assistant for the resume website of Marco Marini, a cool Machine Learning Engineer."+
-        "Your task is to answer questions regarding Marco which can be made by potential employers using only the" +
-        " information you will be provided. Of course you have to reply always showing that Marco would be a perfect" +
-        " fit for whatever position they are looking for.",
-      tools: [{ type: "code_interpreter" }],
-      model: "gpt-4-1106-preview",
+  // Create a thread
+    var thread = await fetch("https://api.openai.com/v1/threads", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      "OpenAI-Beta": 'assistants=v1',
+      }
     });
 
-    // Create a thread
-    const thread = await openai.beta.threads.create();
-
-    // Pass in the user question into the existing thread
-    await openai.beta.threads.messages.create(thread.id, {
-    role: "user",
-    content: userQuestion,
-    });
-
-    // Use runs to wait for the assistant response and then retrieve it
-    const run = await openai.beta.threads.runs.create(thread.id, {
-    assistant_id: assistant.id,
-    });
-
-    let runStatus = await openai.beta.threads.runs.retrieve(
-    thread.id,
-    run.id
-    );
-
-    // Polling mechanism to see if runStatus is completed
-    // This should be made more robust.
-    while (runStatus.status !== "completed") {
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        runStatus = await openai.beta.threads.runs.retrieve(thread.id, run.id);
-    }
-
-    // Get the last assistant message from the messages array
-    const messages = await openai.beta.threads.messages.list(thread.id);
-
-    // Find the last message for the current run
-    const lastMessageForRun = messages.data
-    .filter(
-        (message) => message.run_id === run.id && message.role === "assistant"
-    )
-    .pop();
-
-    // If an assistant message is found, console.log() it
-    if (lastMessageForRun) {
-        const botReply = `${lastMessageForRun.content[0].text.value} \n`;
-
-        return {
-            statusCode: 200,
-            body: JSON.stringify(botReply),
-        };
-    } else {
-
-        return {
-            statusCode: 404,
-            body: JSON.stringify("Jarvis' reply not found..."),
-        };
+    if (!thread.ok) {
+      const errorMessage = await thread.text();
+      console.error(`Error from GPT-3 API: ${errorMessage}`);
+      return {
+        statusCode: thread.status,
+        body: JSON.stringify({ error: error.message }),
+      };
     }
   } catch (error) {
-    console.log("Creating assistant...");
-    console.error(`Internal server error: ${error}`);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message }),
+      body: JSON.stringify({ error: "problem creating thread" }),
     };
+  }
+
+  var thread =  await thread.json();
+  const threadId = thread.id;
+
+  const message = {
+    role: 'user',
+    content: userQuestion,
+  };
+
+  try {
+    // Pass in the user question into the existing thread
+    await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        'OpenAI-Beta': 'assistants=v1',
+      },
+      body: JSON.stringify(message),
+    })
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "problem adding message to thread" }),
+    };
+  }
+
+  const assistantInst = {
+    assistant_id: 'asst_ITu4cEdOGACu1qlRpS6t0SVh'
+  };
+
+  try {
+    // Use runs to wait for the assistant response and then retrieve it
+    var run = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json',
+        'OpenAI-Beta': 'assistants=v1',
+      },
+      body: JSON.stringify(assistantInst),
+    })
+
+    if (!run.ok) {
+      const errorMessage = await run.text();
+      console.error(`Error from GPT-3 API: ${errorMessage}`);
+      return {
+        statusCode: run.status,
+        body: JSON.stringify({ error: error.message }),
+      };
+    }
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "problem running thread " + error.message + threadId}),
+    };
+  }
+
+  var run =  await run.json();
+  const runId = run.id;
+
+  try {
+    var status = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs/${runId}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        'OpenAI-Beta': 'assistants=v1',
+      },
+    });
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "problem getting status" }),
+    };
+  }
+
+  var status =  await status.json();
+
+  // Polling mechanism to see if runStatus is completed
+  // This should be made more robust.
+  while (status.status !== "completed") {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      status = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs/${runId}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+          'OpenAI-Beta': 'assistants=v1',
+        },
+      })
+      var status =  await status.json();
+  }
+
+  try {
+  // Get the last assistant message from the messages array
+    var messages = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        'OpenAI-Beta': 'assistants=v1',
+      },
+    })
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "problem reading messages" }),
+    };
+  }
+
+  var messages = await messages.json();
+
+  // Find the last message for the current run
+  const lastMessageForRun = messages.data
+  .filter(
+      (message) => message.run_id === runId && message.role === "assistant"
+  )
+  .pop();
+
+  // If an assistant message is found, console.log() it
+  if (lastMessageForRun) {
+      const botReply = `${lastMessageForRun.content[0].text.value}`;
+
+      return {
+          statusCode: 200,
+          body: JSON.stringify(botReply),
+      };
+  } else {
+
+      return {
+          statusCode: 404,
+          body: JSON.stringify("Jarvis' reply not found..."),
+      };
   }
 }

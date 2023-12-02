@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Markdown from 'markdown-to-jsx';
 import { motion } from 'framer-motion';
 import Main from '../layouts/Main';
+import ChatButton from '../components/Chat/ChatButton';
 
 const About = () => {
   const [markdown, setMarkdown] = useState('');
@@ -46,6 +47,7 @@ const About = () => {
           </Markdown>
         </div>
       </motion.article>
+      <ChatButton />
     </Main>
   );
 };

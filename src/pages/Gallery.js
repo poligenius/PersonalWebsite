@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import GalleryItem from '../components/GalleryItem/GalleryItem';
 import data from '../data/gallery';
 import Main from '../layouts/Main';
+import ChatButton from '../components/Chat/ChatButton';
 import '../static/css/pages/_gallery.scss'; // Create a CSS file to style the gallery (Gallery.css)
 
 const Gallery = () => (
@@ -32,6 +33,7 @@ const Gallery = () => (
         ))}
       </div>
     </motion.article>
+    <ChatButton />
   </Main>
 );
 

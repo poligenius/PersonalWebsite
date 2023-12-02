@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import Main from '../layouts/Main';
 
+import ChatButton from '../components/Chat/ChatButton';
+
 import Education from '../components/Resume/Education';
 import Experience from '../components/Resume/Experience';
 import Skills from '../components/Resume/Skills';
@@ -54,6 +56,7 @@ const Resume = () => (
         ))}
       </div>
     </motion.article>
+    <ChatButton />
   </Main>
 );
 

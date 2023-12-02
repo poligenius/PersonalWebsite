@@ -6,6 +6,7 @@ import Main from '../layouts/Main';
 
 import Personal from '../components/Stats/Personal';
 import Site from '../components/Stats/Site';
+import ChatButton from '../components/Chat/ChatButton';
 
 const Stats = () => (
   <Main
@@ -29,6 +30,7 @@ const Stats = () => (
         <Site />
       </div>
     </motion.article>
+    <ChatButton />
   </Main>
 );
 

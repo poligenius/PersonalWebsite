@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ChatButton from '../components/Chat/ChatButton';
 
 import Main from '../layouts/Main';
 import EmailLink from '../components/Contact/EmailLink';
@@ -45,6 +46,7 @@ const Contact = () => (
       </div>
       <ContactIcons />
     </motion.article>
+    <ChatButton />
   </Main>
 );
 

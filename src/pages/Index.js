@@ -31,7 +31,7 @@ const Index = () => (
         Hope you&apos;ll enjoy the site.
       </p>
       <p>Don&apos;t have time to explore the site? It&apos;s fine, download my compact resume by
-        clicking below.
+        clicking below, or ask whatever you want to know to my virtual assistant!
       </p>
       <p>
         <a href="/MarcoMarini_resume.pdf" download>
@@ -39,9 +39,6 @@ const Index = () => (
         </a>
       </p>
       <p> Site&apos;s source code available <a href="https://github.com/poligenius/PersonalWebsite">here</a>.</p>
-      <p> Notes: I&apos;m developing my virtual AI assistant, it is still a work in progress,
-        so don&apos;t get mad if it gives you wrong answers or error messages.
-      </p>
     </motion.article>
     <ChatButton />
   </Main>

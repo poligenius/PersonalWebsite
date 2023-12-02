@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import '../../static/css/pages/_chat.scss';
 
-const endpoint = '/.netlify/functions/gpt3'; // Update the endpoint to your serverless function
+const endpoint = '/.netlify/functions/aiAssistant'; // Update the endpoint to your serverless function
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
 
-  function handleSendMessage() {
+  async function handleSendMessage() {
     if (inputMessage.trim() === '') return;
 
     // Add the user's message to the chat interface
@@ -37,7 +37,7 @@ const Chat = () => {
       <div className="chat-messages">
         {messages.map((message) => (
           <div key={message.id} className={`message message-${message.role}`}>
-            {message.content}
+            {message.content.replace(/"/g, '')}
           </div>
         ))}
       </div>

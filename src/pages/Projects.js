@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
+import ChatButton from '../components/Chat/ChatButton';
 import Main from '../layouts/Main';
-
 import Cell from '../components/Projects/Cell';
 import data from '../data/projects';
 
@@ -34,6 +33,7 @@ const Projects = () => (
         ))}
       </div>
     </motion.article>
+    <ChatButton />
   </Main>
 );
 
