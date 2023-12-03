@@ -30,10 +30,10 @@ TypingText.propTypes = {
 };
 
 const Chat = () => {
+  const [typing, setTyping] = useState(false);
   const firstMessage = { role: 'bot', content: 'Nice to meet you, I\'m Jarvis, ask me anything about Marco, I\'ll try to answer.' };
   const [messages, setMessages] = useState([firstMessage]);
   const [inputMessage, setInputMessage] = useState('');
-  const [typing, setTyping] = useState(false);
 
   const chatBottomRef = useRef(null);
   const botMessageRef = useRef(null);
@@ -53,12 +53,14 @@ const Chat = () => {
   }, [typing]);
 
   async function handleSendMessage() {
-    setTyping(true);
-
     if (inputMessage.trim() === '') return;
 
     // Add the user's message to the chat interface
     setMessages([...messages, { role: 'user', content: inputMessage }]);
+
+    setTyping(true);
+
+    setMessages((prevMessages) => [...prevMessages, { role: 'bot', content: '...' }]);
 
     // Send the user's message to the serverless function
     fetch(endpoint, {
@@ -73,7 +75,7 @@ const Chat = () => {
         // Create a new message object for the bot's reply
         const botMessage = { role: 'bot', content: botReply };
         // Add the bot's reply to the chat interface
-        setMessages((prevMessages) => [...prevMessages, botMessage]);
+        setMessages((prevMessages) => [...prevMessages.slice(0, -1), botMessage]);
         setTyping(false);
       });
 
@@ -84,7 +86,7 @@ const Chat = () => {
     <div className="chat-popup">
       <div className="chat-messages">
         {messages.map((message, index) => {
-          if (message.role === 'user' && typing) {
+          if (message.role === 'bot' && index === messages.length - 1 && index !== 0 && typing) {
             return (
               <div key={message.id || index} className={`message message-${message.role}`}>
                 <div className="typing-dots">
@@ -96,18 +98,26 @@ const Chat = () => {
             );
           }
 
-          if (message.role === 'bot' && !typing) {
+          if (message.role === 'bot' && index !== messages.length - 1) {
             return (
               <div key={message.id || index} className={`message message-${message.role}`}>
                 <div ref={botMessageRef} /> {/* Bot's message specific ref */}
-                {message.content.replace(/"/g, '')}
+                {message.content.replace(/"/g, '').replace(/\/n/g, '')}
+              </div>
+            );
+          }
+
+          if (message.role === 'user') {
+            return (
+              <div key={message.id || index} className={`message message-${message.role}`}>
+                {message.content.replace(/"/g, '').replace(/\/n/g, '')}
               </div>
             );
           }
 
           return (
             <div key={message.id || index} className={`message message-${message.role}`}>
-              <TypingText text={message.content.replace(/"/g, '')} />
+              <TypingText text={message.content.replace(/"/g, '').replace(/\/n/g, '')} />
             </div>
           );
         })}
