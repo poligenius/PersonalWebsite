@@ -57,7 +57,7 @@ const ChatButtonHome = () => {
       </div>
       {showText && (
         <div className="text-bubble">
-          <TypingText text="Hi, I'm Jarvis. Touch me to ask questions about Marco." />
+          <TypingText text="Hi, I'm Jarvis. Click me to ask questions about Marco." />
         </div>
       )}
       {isOpen && <Chat />}

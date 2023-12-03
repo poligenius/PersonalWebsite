@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
 import '../../static/css/pages/_chat.scss';
 
@@ -13,7 +13,8 @@ const TypingText = ({ text }) => {
     let currentIndex = 0;
     const interval = setInterval(() => {
       if (currentIndex <= text.length) {
-        setDisplayText(text.slice(0, currentIndex));
+        const display = text.slice(0, currentIndex); // Replace escaped backslashes
+        setDisplayText(display.replace(/\\n/g, '<br />')); // Replace \n with actual newline
         currentIndex += 1;
       } else {
         clearInterval(interval);
@@ -22,9 +23,8 @@ const TypingText = ({ text }) => {
     return () => clearInterval(interval);
   }, [text]);
 
-  return <p>{displayText}</p>;
+  return <div dangerouslySetInnerHTML={{ __html: displayText }} />;
 };
-
 TypingText.propTypes = {
   text: PropTypes.string.isRequired,
 };
@@ -98,11 +98,21 @@ const Chat = () => {
             );
           }
 
+          // Inside the mapping of bot messages
           if (message.role === 'bot' && index !== messages.length - 1) {
+            const botContent = message.content
+              .replace(/"/g, '') // Remove quotes
+              .split('\\n') // Split the message by \n
+              .map((part, i, array) => (
+                <React.Fragment key={uuidv4()}>
+                  <span dangerouslySetInnerHTML={{ __html: part }} />
+                  {i !== array.length - 1 && <br />} {/* Add <br /> between lines */}
+                </React.Fragment>
+              ));
+
             return (
               <div key={message.id || index} className={`message message-${message.role}`}>
-                <div ref={botMessageRef} /> {/* Bot's message specific ref */}
-                {message.content.replace(/"/g, '').replace(/\/n/g, '')}
+                <div ref={botMessageRef}>{botContent}</div>
               </div>
             );
           }
@@ -110,11 +120,10 @@ const Chat = () => {
           if (message.role === 'user') {
             return (
               <div key={message.id || index} className={`message message-${message.role}`}>
-                {message.content.replace(/"/g, '').replace(/\/n/g, '')}
+                {message.content.replace(/"/g, '').replace(/\n/g, '')}
               </div>
             );
           }
-
           return (
             <div key={message.id || index} className={`message message-${message.role}`}>
               <TypingText text={message.content.replace(/"/g, '').replace(/\/n/g, '')} />
