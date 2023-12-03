@@ -6,7 +6,21 @@ My personal website. An [MIT](https://github.com/poligenius/PersonalWebsite/blob
 
 ## Adapting this Project
 
-Building your own personal website from this project can take as little as 30 minutes. Follow the setup instructions below and review **detailed notes and a checklist on adapting this project [here](./docs/adapting-guide.md)**. Please feel free to reach out to me by filing an issue or emailing me at [poligeniushelp@gmail.com](mailto:poligeniushelp@gmail.com) for help configuring your project.
+Building your own personal website from this project can take as little as 1 day. Follow the setup instructions below and review **detailed notes and a checklist on adapting this project [here](./docs/adapting-guide.md)**. Please feel free to reach out to me by filing an issue or emailing me at [poligeniushelp@gmail.com](mailto:poligeniushelp@gmail.com) for help configuring your project.
+
+### UPDATE 3.12.23
+
+Finally implemented the AI Assistant (Jarvis). It is being implemented using netlify serverless functions since I am deploy the site on netlify.com.
+The serverless function logic can be found in the folder: "netlify/functions"
+Basically it works as follows:
+ - the client send a message to the serverless function.
+ - the serverless function gets in contact with chat gpt openai APIs to post user question to gpt AI Assistant and get messages and replies.
+ - the serverless function gets back to the client showing the bot reply.
+
+ #### Important Notes
+- Using openai APIs has a cost (very small but still a cost), if you want to keep the chatbot you need to add credits to your openai account (6$ should be enough for a year, it depends from how many visits your site has), if you do not want to pay for it just remove the chatbot from the sie, (you can do that by removing the tag <ChatButton /> or <ChatButtonHome /> from all the pages)
+- If you want to keep the chatbot remember to create an AI Assistant on openai and in the serverless function substitute the id of the assistant with yours.
+- Also remember to add your openai API KEY in an environmental variable, you can do that in local by using the .env file, but you will also have to define it on netlify (it is really easy) and can be done from the UI site -> site settings -> environmental variable . Keep in mind that your API KEY should not be public!
 
 ## Dependencies
 
