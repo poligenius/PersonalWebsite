@@ -95,7 +95,6 @@
   margin: 5px 5px;
   padding: 10px 15px;
   position: relative;
-  position: relative;
 }
 
 /* Style for user and bot roles in messages */
@@ -122,7 +121,7 @@
   height: 24px;
   display: block;
   position: absolute;
-  left: 10px; /* Adjust the spacing from the left */
+  left: 6px; /* Adjust the spacing from the left */
   top: 50%;
   transform: translateY(-50%);
   background-repeat: no-repeat;
@@ -137,11 +136,95 @@
   height: 24px;
   display: block;
   position: absolute;
-  left: 10px; /* Adjust the spacing from the left */
+  left: 6px; /* Adjust the spacing from the left */
   top: 50%;
   transform: translateY(-50%);
   background-repeat: no-repeat;
   margin-right: 10px; /* Add spacing between the icon and the text */
+}
+
+.text-bubble {
+  position: fixed;
+  bottom: 90px;
+  right: 140px;
+  width: 350px;
+  background-color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 18px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: textBubbleAnimation 0s ease-in-out forwards;
+  justify-content: center;
+  text-align: centerx;
+  color: #000000;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    right: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+  }
+}
+
+.text-bubble p {
+  animation: typing 2s steps(40, end) forwards;
+}
+
+@keyframes typing {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes textBubbleAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dotAnimation {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.typing-dots {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: dotAnimation 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
 
@@ -216,5 +299,39 @@
     bottom: 20px;
     position: fixed;
     z-index: 1000;
+  }
+
+  .text-bubble {
+    position: fixed;
+    bottom: 65px;
+    background-color: #ffffff;
+    padding: 6px 6px;
+    width: 240px;
+    height: 70px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: textBubbleAnimation 0.7s ease-in-out forwards;
+    left: 175px;
+    text-align: center;
+    color: #000000;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      right: -5px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #ffffff transparent;
+    }
+  }
+
+  @keyframes textBubbleAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 }

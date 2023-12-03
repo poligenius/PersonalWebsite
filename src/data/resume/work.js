@@ -27,7 +27,7 @@ const work = [
       'Developed a complex application that allows for the calculation and scheduling of risk indicators. I implemented the backend using Python and the frontend with React. This application integrates seamlessly with a forecasting model for these indicators, enabling the client to anticipate market trends and take proactive or corrective actions.',
       'Oversaw the development of a clustering algorithm designed to identify users with anomalous permissions within the client’s database. This initiative resulted in reducing the auditor’s workload by more than fivefold and significantly improving the precision of anomalous user detection.',
       'Adviced clients during the architectural decision phase of Machine Learning projects.',
-      'Hold many hours of lecture during a collaboration with H-Farm college teaching students the foundations of Spark, Big Data and Machine Learning.',
+      'Held many hours of lecture during a collaboration with H-Farm college teaching students the foundations of Spark, Big Data and Machine Learning.',
     ],
   },
 ];

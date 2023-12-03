@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import ChatButton from '../components/Chat/ChatButton';
+import ChatButtonHome from '../components/Chat/ChatButtonHome';
 
 import Main from '../layouts/Main';
 
@@ -40,7 +40,7 @@ const Index = () => (
       </p>
       <p> Site&apos;s source code available <a href="https://github.com/poligenius/PersonalWebsite">here</a>.</p>
     </motion.article>
-    <ChatButton />
+    <ChatButtonHome />
   </Main>
 );
 

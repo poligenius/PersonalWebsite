@@ -1,13 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+import PropTypes from 'prop-types';
+
 import '../../static/css/pages/_chat.scss';
 
 const endpoint = '/.netlify/functions/aiAssistant'; // Update the endpoint to your serverless function
 
+const TypingText = ({ text }) => {
+  const [displayText, setDisplayText] = useState('');
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      if (currentIndex <= text.length) {
+        setDisplayText(text.slice(0, currentIndex));
+        currentIndex += 1;
+      } else {
+        clearInterval(interval);
+      }
+    }, 30); // Adjust the typing speed as needed (milliseconds)
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return <p>{displayText}</p>;
+};
+
+TypingText.propTypes = {
+  text: PropTypes.string.isRequired,
+};
+
 const Chat = () => {
-  const [messages, setMessages] = useState([]);
+  const firstMessage = { role: 'bot', content: 'Nice to meet you, I\'m Jarvis, ask me anything about Marco, I\'ll try to answer.' };
+  const [messages, setMessages] = useState([firstMessage]);
   const [inputMessage, setInputMessage] = useState('');
+  const [typing, setTyping] = useState(false);
+
+  const chatBottomRef = useRef(null);
+  const botMessageRef = useRef(null);
+
+  useEffect(() => {
+    if (chatBottomRef.current && botMessageRef.current) {
+      botMessageRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
+
+  useEffect(() => {
+    if (typing) {
+      if (chatBottomRef.current) {
+        chatBottomRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [typing]);
 
   async function handleSendMessage() {
+    setTyping(true);
+
     if (inputMessage.trim() === '') return;
 
     // Add the user's message to the chat interface
@@ -27,6 +74,7 @@ const Chat = () => {
         const botMessage = { role: 'bot', content: botReply };
         // Add the bot's reply to the chat interface
         setMessages((prevMessages) => [...prevMessages, botMessage]);
+        setTyping(false);
       });
 
     setInputMessage(''); // Clear the input field
@@ -35,11 +83,35 @@ const Chat = () => {
   return (
     <div className="chat-popup">
       <div className="chat-messages">
-        {messages.map((message) => (
-          <div key={message.id} className={`message message-${message.role}`}>
-            {message.content.replace(/"/g, '')}
-          </div>
-        ))}
+        {messages.map((message, index) => {
+          if (message.role === 'user' && typing) {
+            return (
+              <div key={message.id || index} className={`message message-${message.role}`}>
+                <div className="typing-dots">
+                  <span className="dot" />
+                  <span className="dot" />
+                  <span className="dot" />
+                </div>
+              </div>
+            );
+          }
+
+          if (message.role === 'bot' && !typing) {
+            return (
+              <div key={message.id || index} className={`message message-${message.role}`}>
+                <div ref={botMessageRef} /> {/* Bot's message specific ref */}
+                {message.content.replace(/"/g, '')}
+              </div>
+            );
+          }
+
+          return (
+            <div key={message.id || index} className={`message message-${message.role}`}>
+              <TypingText text={message.content.replace(/"/g, '')} />
+            </div>
+          );
+        })}
+        <div ref={chatBottomRef} />
       </div>
       <div className="chat-input">
         <input
