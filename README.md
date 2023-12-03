@@ -10,7 +10,7 @@ Building your own personal website from this project can take as little as 1 day
 
 ### UPDATE 3.12.23
 
-Finally implemented the AI Assistant (Jarvis). It is being implemented using netlify serverless functions since I am deploy the site on netlify.com.
+Finally implemented the AI Assistant (Jarvis). It is being implemented using netlify serverless functions since I'm deploying the site on netlify.com.
 The serverless function logic can be found in the folder: "netlify/functions"
 Basically it works as follows:
  - the client send a message to the serverless function.
@@ -18,9 +18,14 @@ Basically it works as follows:
  - the serverless function gets back to the client showing the bot reply.
 
  #### Important Notes
-- Using openai APIs has a cost (very small but still a cost), if you want to keep the chatbot you need to add credits to your openai account (6$ should be enough for a year, it depends from how many visits your site has), if you do not want to pay for it just remove the chatbot from the sie, (you can do that by removing the tag <ChatButton /> or <ChatButtonHome /> from all the pages)
+- Using openai APIs has a cost (very small but still a cost), if you want to keep the chatbot you need to add credits to your openai account (6$ should be enough for a year, it depends from how many visits your site has), if you do not want to pay for it just remove the chatbot from the site, (you can do that by removing the tag <ChatButton /> or <ChatButtonHome /> from all the pages)
 - If you want to keep the chatbot remember to create an AI Assistant on openai and in the serverless function substitute the id of the assistant with yours.
 - Also remember to add your openai API KEY in an environmental variable, you can do that in local by using the .env file, but you will also have to define it on netlify (it is really easy) and can be done from the UI site -> site settings -> environmental variable . Keep in mind that your API KEY should not be public!
+- You can debug on local netlify functions using the command
+```bash
+netlify dev
+```
+you might be needing to set up netlify command and log in with your account, but nothing too difficult.
 
 ## Dependencies
 
