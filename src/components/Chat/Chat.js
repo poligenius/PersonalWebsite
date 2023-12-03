@@ -13,8 +13,8 @@ const TypingText = ({ text }) => {
     let currentIndex = 0;
     const interval = setInterval(() => {
       if (currentIndex <= text.length) {
-        const display = text.slice(0, currentIndex); // Replace escaped backslashes
-        setDisplayText(display.replace(/\\n/g, '<br />')); // Replace \n with actual newline
+        const display = text.slice(0, currentIndex); // Take substring until current index
+        setDisplayText(display.replace(/\\n/g, '\n')); // Replace \n with actual newline
         currentIndex += 1;
       } else {
         clearInterval(interval);
@@ -23,8 +23,19 @@ const TypingText = ({ text }) => {
     return () => clearInterval(interval);
   }, [text]);
 
-  return <div dangerouslySetInnerHTML={{ __html: displayText }} />;
+  const renderLines = () => {
+    const lines = displayText.split('\n');
+    return lines.map((line) => (
+      <React.Fragment key={uuidv4()}>
+        {line}
+        <br /> {/* Add <br /> after each line */}
+      </React.Fragment>
+    ));
+  };
+
+  return <div>{renderLines()}</div>; // Render lines with proper line breaks
 };
+
 TypingText.propTypes = {
   text: PropTypes.string.isRequired,
 };
@@ -105,7 +116,7 @@ const Chat = () => {
               .split('\\n') // Split the message by \n
               .map((part, i, array) => (
                 <React.Fragment key={uuidv4()}>
-                  <span dangerouslySetInnerHTML={{ __html: part }} />
+                  {part}
                   {i !== array.length - 1 && <br />} {/* Add <br /> between lines */}
                 </React.Fragment>
               ));
