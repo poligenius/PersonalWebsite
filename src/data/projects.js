@@ -25,6 +25,17 @@ const data = [
       + ' Click on the project to learn more about my work.',
   },
   {
+    title: 'Fake handwritten signatures detector',
+    subtitle: '',
+    link: 'https://github.com/poligenius/SiameseNN_HandwrittenRecognition/tree/main',
+    image: '/images/projects/siameseNN.jpeg',
+    date: '2023-12',
+    desc:
+      'While I worked at PWC I developed this model as a PoC for a client who wanted to develop a model able to'
+      + ' spot fake signatures in documents. I have used a siamese NN to perform the task and, even though it was just a PoC, the results'
+      + ' have been really promising. Go checkout the notebook by clicking on the project.',
+  },
+  {
     title: 'Maize plants segmentation with Neural Networks',
     subtitle: '',
     link: 'https://colab.research.google.com/drive/1aM3h7pbGkOmPxj-OcqgsAtCmG-LJmr0k?usp=sharing',
