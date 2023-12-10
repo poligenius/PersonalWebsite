@@ -92,7 +92,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "problem running thread " + error.message + threadId}),
+      body: JSON.stringify({ error: "Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again."}),
     };
   }
 
