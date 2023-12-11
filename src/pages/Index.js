@@ -8,7 +8,7 @@ import Main from '../layouts/Main';
 const Index = () => (
   <Main
     description={"Marco Marini's personal website. Milan based Politecnico graduate, "
-    + 'Machine Learning and AI engineer at PwC.'}
+    + 'Tech Product Owner at Mediaset.'}
   >
     <motion.article
       className="post"

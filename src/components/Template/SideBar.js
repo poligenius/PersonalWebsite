@@ -20,7 +20,7 @@ const SideBar = () => (
     <section className="blurb">
       <h2 style={{ color: '#ffffff' }}>About</h2>
       <p style={{ color: '#ffffff' }}>Hi, I&apos;m Marco. I am a <a href="https://www.polimi.it/corsi/corsi-di-laurea-magistrale/M/2022-ing-ind-inf-magord-270-mi-481-computer-science-and-engineering-ingegneria-informatica">Politecnico</a> graduate
-        and the AI and ML Engineer at <a href="https://www.pwc.com/it/it/">PwC</a>.
+        and Tech Product Owner at <a href="https://mediasetitalia.com/">Mediaset</a>.
         Please feel free to browse through the various sections of the site to get to know me
         better.
       </p>

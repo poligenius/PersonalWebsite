@@ -13,10 +13,24 @@
  */
 const work = [
   {
+    name: 'Mediaset',
+    position: 'Tech Product Owner',
+    url: 'https://mediasetitalia.com/',
+    startDate: '2023-12-11',
+    summary: 'Mediaset is a prominent media corporation based in Italy, stands as a leader in the industry, known for its diversified portfolio of television channels and a steadfast commitment to innovation. \nAs a Tech Product Owner at Mediaset, I spearhead the strategic management of technological products within the realms of Software, Machine Learning, and Artificial Intelligence. \nKey aspects of my role include:',
+    highlights: [
+      'Innovation Leadership: Championing the integration of emerging technologies, particularly in the fields of machine learning and artificial intelligence.',
+      'Stakeholder Engagement: Collaborating closely with stakeholders to align technological initiatives with organizational objectives.',
+      'Proof of Concept Development: Orchestrating the production of robust proofs of concept to illustrate the feasibility and potential impact of innovative ideas.',
+      'Cross-functional Collaboration: Fostering collaboration among multidisciplinary teams to ensure seamless integration of technology-driven solutions.',
+    ],
+  },
+  {
     name: 'PwC',
     position: 'AI and Machine Learning Engineer - Associate',
     url: 'https://www.pwc.com/it/it/',
     startDate: '2022-10-24',
+    endDate: '2023-12-10',
     summary: `PwC stands for PricewaterhouseCoopers, which is one of the world's leading professional services networks.
     It is a multinational firm that provides a wide range of services to clients,
     including auditing, consulting, tax advisory, and assurance services. PwC serves clients from
