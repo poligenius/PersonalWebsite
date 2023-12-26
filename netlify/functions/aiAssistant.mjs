@@ -158,7 +158,12 @@ exports.handler = async (event, context) => {
 
   // If an assistant message is found, console.log() it
   if (lastMessageForRun) {
-      const botReply = `${lastMessageForRun.content[0].text.value}`;
+      let botReply = `${lastMessageForRun.content[0].text.value}`;
+
+      let index = botReply.indexOf('【');
+      if (index !== -1) {
+          botReply = botReply.substring(0, index) + '.';
+      }
 
       return {
           statusCode: 200,
