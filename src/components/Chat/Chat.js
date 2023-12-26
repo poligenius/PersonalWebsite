@@ -81,12 +81,23 @@ const Chat = () => {
         'Content-Type': 'application/json',
       },
     })
-      .then((res) => res.text()) // Parse the response as text
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.text();
+      }) // Parse the response as text
       .then((botReply) => {
         // Create a new message object for the bot's reply
         const botMessage = { role: 'bot', content: botReply };
         // Add the bot's reply to the chat interface
         setMessages((prevMessages) => [...prevMessages.slice(0, -1), botMessage]);
+        setTyping(false);
+      })
+      .catch(() => {
+        // Optionally, you can set an error message in the chat interface
+        const errorMessage = { role: 'bot', content: 'Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question.' };
+        setMessages((prevMessages) => [...prevMessages.slice(0, -1), errorMessage]);
         setTyping(false);
       });
 

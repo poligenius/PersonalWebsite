@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
-      body: JSON.stringify({ error: 'Method not allowed' }),
+      body: JSON.stringify({  error: "Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question." }),
     };
   }
 
@@ -29,13 +29,13 @@ exports.handler = async (event, context) => {
       console.error(`Error from GPT-3 API: ${errorMessage}`);
       return {
         statusCode: thread.status,
-        body: JSON.stringify({ error: error.message }),
+        body: JSON.stringify({ error: "Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question." }),
       };
     }
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "problem creating thread" }),
+      body: JSON.stringify({ error: "Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question." }),
     };
   }
 
@@ -61,7 +61,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "problem adding message to thread" }),
+      body: JSON.stringify({ error: "Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question." }),
     };
   }
 
@@ -86,13 +86,13 @@ exports.handler = async (event, context) => {
       console.error(`Error from GPT-3 API: ${errorMessage}`);
       return {
         statusCode: run.status,
-        body: JSON.stringify({ error: error.message }),
+        body: JSON.stringify({ error: "Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question."}),
       };
     }
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again."}),
+      body: JSON.stringify({ error: "Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question."}),
     };
   }
 
@@ -110,7 +110,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "problem getting status" }),
+      body: JSON.stringify({error: "Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question." }),
     };
   }
 
@@ -143,7 +143,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "problem reading messages" }),
+      body: JSON.stringify({error: "Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question." }),
     };
   }
 
@@ -168,7 +168,7 @@ exports.handler = async (event, context) => {
 
       return {
           statusCode: 404,
-          body: JSON.stringify("Jarvis' reply not found..."),
+          body: JSON.stringify("Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question." ),
       };
   }
 }
