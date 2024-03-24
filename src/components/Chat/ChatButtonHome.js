@@ -49,7 +49,6 @@ const ChatButtonHome = () => {
           setChatbotLanguage('english');
         }
       } catch (error) {
-        console.error('Error detecting country:', error);
         // Fallback to default language (English)
         setChatbotLanguage('english');
       }
