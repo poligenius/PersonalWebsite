@@ -38,7 +38,7 @@ const ChatButtonHome = () => {
     const detectCountry = async () => {
       try {
         // Use your chosen IP geolocation service/API to detect the country
-        const response = await fetch('http://ip-api.com/json/');
+        const response = await fetch('https://ip-api.com/json/');
         const data = await response.json();
         // Assuming the API returns ISO 3166-1 alpha-2 country codes
         const countryCode = data.country_code;
