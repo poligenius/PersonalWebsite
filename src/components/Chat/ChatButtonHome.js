@@ -38,10 +38,10 @@ const ChatButtonHome = () => {
     const detectCountry = async () => {
       try {
         // Use your chosen IP geolocation service/API to detect the country
-        const response = await fetch('https://api.ipgeolocationapi.com/geolocate');
+        const response = await fetch('http://ip-api.com/json/');
         const data = await response.json();
         // Assuming the API returns ISO 3166-1 alpha-2 country codes
-        const countryCode = data.country_code2;
+        const countryCode = data.country_code;
         // Set chatbot language based on detected country
         if (countryCode === 'IT') {
           setChatbotLanguage('italian');
