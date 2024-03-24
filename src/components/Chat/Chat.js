@@ -59,6 +59,7 @@ const Chat = () => {
           setChatbotLanguage('english');
         }
       } catch (error) {
+        setChatbotLanguage('english');
       }
     };
 
