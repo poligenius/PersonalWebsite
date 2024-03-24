@@ -4,7 +4,7 @@ import Chat from './Chat';
 import '../../static/css/pages/_chat.scss';
 
 const { PUBLIC_URL } = process.env;
-const geoIpApiKey = process.env.IPGEO_API_KEY;
+const geoIpApiKey = process.env.REACT_APP_IPGEO_API_KEY;
 
 const TypingText = ({ text }) => {
   const [displayText, setDisplayText] = useState('');
