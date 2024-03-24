@@ -1,6 +1,18 @@
 // TODO Add a couple lines about each project
 const data = [
   {
+    title: 'Put Off Fire - START Hack 24',
+    subtitle: 'Submission for Start Hack 2024',
+    link: 'https://github.com/poligenius/React-No-Profi-Landing-Page-Start-Hack',
+    image: '/images/projects/StartHack24-landing_page.png',
+    date: '2024-03',
+    desc:
+      'START Hack is one of the world\'s most famous hackathons that takes place every year in St. Gallen. I took part to this event with the Google Developers Club of Politecnico di Milano.'
+      + ' We had to code for 36 hours in order to propose a solution for the problem of wildfires in Brazil.'
+      + ' We developed a computer vision model able to detect the presence of wildfires from drone\'s footages and alert the authorities, in addition we developed an '
+      + 'engaging landing page, using react, to rise awareness about this problem.',
+  },
+  {
     title: 'Adrenaline',
     subtitle: '2019 bachelor degree thesis\' project',
     link: 'https://github.com/lentinip/ing-sw-2019-Lentini-Marazzi-Marini',

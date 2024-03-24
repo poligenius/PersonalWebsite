@@ -26,6 +26,18 @@ const work = [
     ],
   },
   {
+    name: 'START Hack 2024',
+    position: 'Hacker',
+    url: 'https://www.startglobal.org/start-hack/home',
+    startDate: '2024-03-20',
+    endDate: '2024-03-22',
+    summary: 'START Hack is one of the world\'s most famous hackathons that takes place every year in St. Gallen. I took part to this event with the Google Developers Club of Politecnico di Milano.'
+    + ' We had to code for 36 hours in order to propose a solution for the problem of wildfires in Brazil.'
+    + ' We developed a computer vision model able to detect the presence of wildfires from drone\'s footages and alert the authorities, in addition we developed an '
+    + 'engaging landing page, using react, to rise awareness about this problem. You can find the link to our project in the project section of my site.',
+    highlights: [],
+  },
+  {
     name: 'PwC',
     position: 'AI and Machine Learning Engineer - Associate',
     url: 'https://www.pwc.com/it/it/',

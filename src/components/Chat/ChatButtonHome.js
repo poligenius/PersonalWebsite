@@ -1,8 +1,5 @@
-// ChatButton.js
 import React, { useState, useEffect } from 'react';
-
-import PropTypes from 'prop-types'; // Import PropType
-
+import PropTypes from 'prop-types';
 import Chat from './Chat';
 import '../../static/css/pages/_chat.scss';
 
@@ -34,8 +31,33 @@ TypingText.propTypes = {
 const ChatButtonHome = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showText, setShowText] = useState(false);
+  const [chatbotLanguage, setChatbotLanguage] = useState('english'); // Default language is English
 
   useEffect(() => {
+    // Function to detect visitor's country based on IP address
+    const detectCountry = async () => {
+      try {
+        // Use your chosen IP geolocation service/API to detect the country
+        const response = await fetch('https://api.ipgeolocationapi.com/geolocate');
+        const data = await response.json();
+        // Assuming the API returns ISO 3166-1 alpha-2 country codes
+        const countryCode = data.country_code2;
+        // Set chatbot language based on detected country
+        if (countryCode === 'IT') {
+          setChatbotLanguage('italian');
+        } else {
+          setChatbotLanguage('english');
+        }
+      } catch (error) {
+        console.error('Error detecting country:', error);
+        // Fallback to default language (English)
+        setChatbotLanguage('english');
+      }
+    };
+
+    // Call the function to detect country when the component mounts
+    detectCountry();
+
     // Use a timeout to display the text after a delay when the component mounts
     const timeout = setTimeout(() => {
       setShowText(true);
@@ -57,7 +79,13 @@ const ChatButtonHome = () => {
       </div>
       {showText && (
         <div className="text-bubble">
-          <TypingText text="Hi, I'm Jarvis. Click me to ask questions about Marco." />
+          <TypingText
+            text={
+              chatbotLanguage === 'italian'
+                ? 'Ciao, sono Jarvis. Clicca su di me per fare domande su Marco.'
+                : 'Hi, I\'m Jarvis. Click me to ask questions about Marco.'
+            }
+          />
         </div>
       )}
       {isOpen && <Chat />}
