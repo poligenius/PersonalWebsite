@@ -59,7 +59,6 @@ const Chat = () => {
           setChatbotLanguage('english');
         }
       } catch (error) {
-        console.error('Error detecting country:', error);
       }
     };
 
