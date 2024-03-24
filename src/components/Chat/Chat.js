@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import '../../static/css/pages/_chat.scss';
 
 const endpoint = '/.netlify/functions/aiAssistant'; // Update the endpoint to your serverless function
+const geoIpApiKey = process.env.REACT_APP_IPGEO_API_KEY;
 
 const TypingText = ({ text }) => {
   const [displayText, setDisplayText] = useState('');
@@ -42,10 +43,39 @@ TypingText.propTypes = {
 
 const Chat = () => {
   const [typing, setTyping] = useState(false);
-  const firstMessage = { role: 'bot', content: 'Nice to meet you, I\'m Jarvis, ask me anything about Marco, I\'ll try to answer.' };
-  const [messages, setMessages] = useState([firstMessage]);
   const [inputMessage, setInputMessage] = useState('');
+  const [chatbotLanguage, setChatbotLanguage] = useState('english');
 
+  useEffect(() => {
+    // Function to detect visitor's country based on IP address
+    const detectCountry = async () => {
+      try {
+        const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${geoIpApiKey}`);
+        const data = await response.json();
+        const countryCode = data.country_code2;
+        if (countryCode === 'IT') {
+          setChatbotLanguage('italian');
+        } else {
+          setChatbotLanguage('english');
+        }
+      } catch (error) {
+        console.error('Error detecting country:', error);
+      }
+    };
+
+    // Call the function to detect country when the component mounts
+    detectCountry();
+  }, []);
+
+  const firstMessage = {
+    role: 'bot',
+    content:
+      chatbotLanguage === 'italian'
+        ? 'Piacere di conoscerti, sono Jarvis, chiedimi qualsiasi cosa su Marco, cercherò di rispondere.'
+        : 'Nice to meet you, I\'m Jarvis, ask me anything about Marco, I\'ll try to answer.',
+  };
+
+  const [messages, setMessages] = useState([firstMessage]);
   const chatBottomRef = useRef(null);
   const botMessageRef = useRef(null);
 
@@ -56,27 +86,21 @@ const Chat = () => {
   }, [messages]);
 
   useEffect(() => {
-    if (typing) {
-      if (chatBottomRef.current) {
-        chatBottomRef.current.scrollIntoView({ behavior: 'smooth' });
-      }
+    if (typing && chatBottomRef.current) {
+      chatBottomRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [typing]);
 
   async function handleSendMessage() {
     if (inputMessage.trim() === '') return;
 
-    // Add the user's message to the chat interface
     setMessages([...messages, { role: 'user', content: inputMessage }]);
-
     setTyping(true);
-
     setMessages((prevMessages) => [...prevMessages, { role: 'bot', content: '...' }]);
 
-    // Send the user's message to the serverless function
     fetch(endpoint, {
       method: 'POST',
-      body: JSON.stringify({ question: inputMessage }), // Send the question in the request body
+      body: JSON.stringify({ question: inputMessage }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -86,22 +110,19 @@ const Chat = () => {
           throw new Error('Network response was not ok');
         }
         return res.text();
-      }) // Parse the response as text
+      })
       .then((botReply) => {
-        // Create a new message object for the bot's reply
         const botMessage = { role: 'bot', content: botReply };
-        // Add the bot's reply to the chat interface
         setMessages((prevMessages) => [...prevMessages.slice(0, -1), botMessage]);
         setTyping(false);
       })
       .catch(() => {
-        // Optionally, you can set an error message in the chat interface
-        const errorMessage = { role: 'bot', content: 'Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question.' };
+        const errorMessage = { role: 'bot', content: chatbotLanguage === 'italian' ? 'Mi dispiace, non sono riuscito a elaborare la tua domanda a causa di un errore di connessione, per favore riprova a fare la domanda o fai una domanda più precisa.' : 'Sorry, I was not able to elaborate your question due to a connection error, please try asking the question again or ask a more precise question.' };
         setMessages((prevMessages) => [...prevMessages.slice(0, -1), errorMessage]);
         setTyping(false);
       });
 
-    setInputMessage(''); // Clear the input field
+    setInputMessage('');
   }
 
   return (
@@ -120,15 +141,14 @@ const Chat = () => {
             );
           }
 
-          // Inside the mapping of bot messages
           if (message.role === 'bot' && index !== messages.length - 1) {
             const botContent = message.content
-              .replace(/"/g, '') // Remove quotes
-              .split('\\n') // Split the message by \n
+              .replace(/"/g, '')
+              .split('\\n')
               .map((part, i, array) => (
                 <React.Fragment key={uuidv4()}>
                   {part}
-                  {i !== array.length - 1 && <br />} {/* Add <br /> between lines */}
+                  {i !== array.length - 1 && <br />}
                 </React.Fragment>
               ));
 
