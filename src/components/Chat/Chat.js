@@ -45,6 +45,9 @@ const Chat = () => {
   const [typing, setTyping] = useState(false);
   const [inputMessage, setInputMessage] = useState('');
   const [chatbotLanguage, setChatbotLanguage] = useState('english');
+  const [messages, setMessages] = useState([]); // Start with no messages
+  const chatBottomRef = useRef(null);
+  const botMessageRef = useRef(null);
 
   useEffect(() => {
     // Function to detect visitor's country based on IP address
@@ -55,29 +58,29 @@ const Chat = () => {
         const countryCode = data.country_code2;
         if (countryCode === 'IT') {
           setChatbotLanguage('italian');
+          // Set the initial message in Italian
+          setMessages([{
+            role: 'bot',
+            content: 'Piacere di conoscerti, sono Jarvis, chiedimi qualsiasi cosa su Marco, cercherò di rispondere.',
+          }]);
         } else {
           setChatbotLanguage('english');
+          setMessages([{
+            role: 'bot',
+            content: 'Nice to meet you, I\'m Jarvis, ask me anything about Marco, I\'ll try to answer.',
+          }]);
         }
       } catch (error) {
-        setChatbotLanguage('english');
+        setMessages([{
+          role: 'bot',
+          content: 'Nice to meet you, I\'m Jarvis, ask me anything about Marco, I\'ll try to answer.',
+        }]);
       }
     };
 
     // Call the function to detect country when the component mounts
     detectCountry();
   }, []);
-
-  const firstMessage = {
-    role: 'bot',
-    content:
-      chatbotLanguage === 'italian'
-        ? 'Piacere di conoscerti, sono Jarvis, chiedimi qualsiasi cosa su Marco, cercherò di rispondere.'
-        : 'Nice to meet you, I\'m Jarvis, ask me anything about Marco, I\'ll try to answer.',
-  };
-
-  const [messages, setMessages] = useState([firstMessage]);
-  const chatBottomRef = useRef(null);
-  const botMessageRef = useRef(null);
 
   useEffect(() => {
     if (chatBottomRef.current && botMessageRef.current) {
@@ -177,7 +180,7 @@ const Chat = () => {
       <div className="chat-input">
         <input
           type="text"
-          placeholder="Type here your question..."
+          placeholder={chatbotLanguage === 'italian' ? 'Scrivi qui la tua domanda...' : 'Type here your question...'}
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
           onKeyDown={(e) => {
