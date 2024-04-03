@@ -28,7 +28,8 @@
       "declaration": true,
       "assignment": true,
       "return": true
-    }]
+    }],
+    "no-console": ["error", { "allow": ["warn", "error"] }]
   },
   "plugins": [
     "react"
