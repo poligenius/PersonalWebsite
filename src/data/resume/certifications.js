@@ -40,7 +40,7 @@ const certifications = [
   {
     platform: 'Udemy',
     name: 'Prompt Engineer',
-    url: 'https://mmarini.it/UdemyPromptEngCertificate.pdf',
+    url: 'https://mmarini.it/PromptEngCertificate.pdf',
     achievedDate: '2024',
   },
 ];
