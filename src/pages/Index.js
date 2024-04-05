@@ -1,19 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ChatButtonHome from '../components/Chat/ChatButtonHome';
 
 import Main from '../layouts/Main';
 
+const geoIpApiKey = process.env.REACT_APP_IPGEO_API_KEY;
+
 const Index = () => {
+  const [countryCode, setCountryCode] = useState('');
+  const userLanguage = navigator.language || navigator.userLanguage;
+
+  useEffect(() => {
+    const fetchCountryCode = async () => {
+      try {
+        const position = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${geoIpApiKey}`);
+        const data = await position.json();
+        setCountryCode(data.country_code2);
+      } catch (error) {
+        console.error('Error fetching country code:', error);
+      }
+    };
+
+    fetchCountryCode();
+  }, []);
+
   const handleDownload = async () => {
-    // This method ensures the download action occurs directly and is less likely ù
-    // to be blocked by browsers.
     window.location.href = '/MarcoMarini_resume.pdf';
     try {
       const response = await fetch('/.netlify/functions/emailSender', {
         method: 'POST',
-        body: JSON.stringify({ emailText: 'Qualcuno ha appena scaricato il tuo cv.' }),
+        body: JSON.stringify({
+          emailText: 'Qualcuno ha appena scaricato il tuo cv.',
+          country: countryCode,
+          language: userLanguage,
+        }),
         headers: {
           'Content-Type': 'application/json',
         },

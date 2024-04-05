@@ -19,6 +19,7 @@ const work = [
     startDate: '2023-12-11',
     summary: 'Mediaset is a prominent media corporation based in Italy, stands as a leader in the industry, known for its diversified portfolio of television channels and a steadfast commitment to innovation. \nAs a Tech Product Owner at Mediaset, I spearhead the strategic management of technological products within the realms of Software, Machine Learning, and Artificial Intelligence. \nKey aspects of my role include:',
     highlights: [
+      'Coordinate teams of external developers and design the architecture of technological solutions.',
       'Innovation Leadership: Championing the integration of emerging technologies, particularly in the fields of machine learning and artificial intelligence.',
       'Stakeholder Engagement: Collaborating closely with stakeholders to align technological initiatives with organizational objectives.',
       'Proof of Concept Development: Orchestrating the production of robust proofs of concept to illustrate the feasibility and potential impact of innovative ideas.',

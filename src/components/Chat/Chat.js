@@ -5,7 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 import '../../static/css/pages/_chat.scss';
 
 const endpoint = '/.netlify/functions/aiAssistant'; // Update the endpoint to your serverless function
-const geoIpApiKey = process.env.REACT_APP_IPGEO_API_KEY;
+
+// retrieving browser lnguage
+const userLanguage = navigator.language || navigator.userLanguage;
 
 const TypingText = ({ text }) => {
   const [displayText, setDisplayText] = useState('');
@@ -52,25 +54,15 @@ const Chat = () => {
   useEffect(() => {
     // Function to detect visitor's country based on IP address
     const detectCountry = async () => {
-      try {
-        const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${geoIpApiKey}`);
-        const data = await response.json();
-        const countryCode = data.country_code2;
-        if (countryCode === 'IT') {
-          setChatbotLanguage('italian');
-          // Set the initial message in Italian
-          setMessages([{
-            role: 'bot',
-            content: 'Piacere di conoscerti, sono Jarvis, chiedimi qualsiasi cosa su Marco, cercherò di rispondere.',
-          }]);
-        } else {
-          setChatbotLanguage('english');
-          setMessages([{
-            role: 'bot',
-            content: 'Nice to meet you, I\'m Jarvis, ask me anything about Marco, I\'ll try to answer.',
-          }]);
-        }
-      } catch (error) {
+      if (userLanguage === 'IT-it') {
+        setChatbotLanguage('italian');
+        // Set the initial message in Italian
+        setMessages([{
+          role: 'bot',
+          content: 'Piacere di conoscerti, sono Jarvis, chiedimi qualsiasi cosa su Marco, cercherò di rispondere.',
+        }]);
+      } else {
+        setChatbotLanguage('english');
         setMessages([{
           role: 'bot',
           content: 'Nice to meet you, I\'m Jarvis, ask me anything about Marco, I\'ll try to answer.',

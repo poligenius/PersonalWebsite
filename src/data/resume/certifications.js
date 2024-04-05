@@ -37,6 +37,12 @@ const certifications = [
     url: 'https://verify.skilljar.com/c/yy4f9p52gbfr',
     achievedDate: '2023',
   },
+  {
+    platform: 'Udemy',
+    name: 'Prompt Engineer',
+    url: 'https://mmarini.it/UdemyPromptEngCertificate.pdf',
+    achievedDate: '2024',
+  },
 ];
 
 export default certifications;

@@ -4,7 +4,9 @@ import Chat from './Chat';
 import '../../static/css/pages/_chat.scss';
 
 const { PUBLIC_URL } = process.env;
-const geoIpApiKey = process.env.REACT_APP_IPGEO_API_KEY;
+
+// retrieving browser lnguage
+const userLanguage = navigator.language || navigator.userLanguage;
 
 const TypingText = ({ text }) => {
   const [displayText, setDisplayText] = useState('');
@@ -37,20 +39,10 @@ const ChatButtonHome = () => {
   useEffect(() => {
     // Function to detect visitor's country based on IP address
     const detectCountry = async () => {
-      try {
-        // Use your chosen IP geolocation service/API to detect the country
-        const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${geoIpApiKey}`);
-        const data = await response.json();
-        // Assuming the API returns ISO 3166-1 alpha-2 country codes
-        const countryCode = data.country_code2;
-        // Set chatbot language based on detected country
-        if (countryCode === 'IT') {
-          setChatbotLanguage('italian');
-        } else {
-          setChatbotLanguage('english');
-        }
-      } catch (error) {
-        // Fallback to default language (English)
+      console.log(userLanguage);
+      if (userLanguage === 'it-IT') {
+        setChatbotLanguage('italian');
+      } else {
         setChatbotLanguage('english');
       }
     };

@@ -29,7 +29,7 @@
       "assignment": true,
       "return": true
     }],
-    "no-console": ["error", { "allow": ["warn", "error"] }]
+    "no-console": ["error", { "allow": ["warn", "error", "log"] }]
   },
   "plugins": [
     "react"
