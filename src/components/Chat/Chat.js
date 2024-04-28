@@ -54,7 +54,8 @@ const Chat = () => {
   useEffect(() => {
     // Function to detect visitor's country based on IP address
     const detectCountry = async () => {
-      if (userLanguage === 'IT-it') {
+      console.log('chat user language ', userLanguage);
+      if (userLanguage === 'it-IT') {
         setChatbotLanguage('italian');
         // Set the initial message in Italian
         setMessages([{
