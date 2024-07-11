@@ -66,7 +66,8 @@ exports.handler = async (event, context) => {
   }
 
   const assistantInst = {
-    assistant_id: 'asst_ITu4cEdOGACu1qlRpS6t0SVh'
+    assistant_id: 'asst_ITu4cEdOGACu1qlRpS6t0SVh',
+
   };
 
   try {
@@ -76,7 +77,7 @@ exports.handler = async (event, context) => {
       headers: {
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Type': 'application/json',
-        'OpenAI-Beta': 'assistants=v1',
+        'OpenAI-Beta': 'assistants=v2',
       },
       body: JSON.stringify(assistantInst),
     })
