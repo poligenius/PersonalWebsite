@@ -17,13 +17,12 @@ const work = [
     position: 'Tech Product Owner',
     url: 'https://mediasetitalia.com/',
     startDate: '2023-12-11',
-    summary: 'Mediaset is a prominent media corporation based in Italy, stands as a leader in the industry, known for its diversified portfolio of television channels and a steadfast commitment to innovation. \nAs a Tech Product Owner at Mediaset, I spearhead the strategic management of technological products within the realms of Software, Machine Learning, and Artificial Intelligence. \nKey aspects of my role include:',
+    summary: 'Mediaset is a leading media corporation based in Italy, renowned for its diverse portfolio of television channels and its dedication to technological innovation. As a Tech Product Owner at Mediaset, I lead cross-functional teams and coordinate with external providers to develop cutting-edge technological solutions that drive significant return on investment (ROI). I am responsible for the following key products:',
     highlights: [
-      'Coordinate teams of external developers and design the architecture of technological solutions.',
-      'Innovation Leadership: Championing the integration of emerging technologies, particularly in the fields of machine learning and artificial intelligence.',
-      'Stakeholder Engagement: Collaborating closely with stakeholders to align technological initiatives with organizational objectives.',
-      'Proof of Concept Development: Orchestrating the production of robust proofs of concept to illustrate the feasibility and potential impact of innovative ideas.',
-      'Cross-functional Collaboration: Fostering collaboration among multidisciplinary teams to ensure seamless integration of technology-driven solutions.',
+      'Private Mobile Application: Managed the end-to-end development of a private mobile app, worth €500.000. Built with React Native and deployed on-premise, I led a team of 8 people, following the end-to-end product lifecycle, from design documents up to development and delivery. The app is now used daily by around 300 Mediaset sales representatives.',
+      'RAG System: Deployed on Google Cloud Platform (GCP) using Gemini 1.5, this system allows employees to query and access PowerPoint presentations, PDFs, and other documents produced by the marketing line of service (LoS).',
+      'Data-to-Presentation Microservice: Developed a microservice deployed on-premise that processes Excel files and transforms them into modern presentation decks. These presentations are used by sales teams to create advertising proposals and are utilized by approximately 500 salespeople each month.',
+      'Recommendation Engine: Led the development of a recommendation system deployed on AWS in Mediaset’s cloud. This system is part of a larger €3 million project and assists operations teams in assigning advertisement spots based on customer requests. The estimated ROI of the solution is around €10 million annually.',
     ],
   },
   {

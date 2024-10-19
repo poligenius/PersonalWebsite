@@ -36,12 +36,12 @@ const skills = [
   },
   {
     title: 'Git',
-    competency: 4,
+    competency: 5,
     category: ['Tools'],
   },
   {
     title: 'Kubernetes',
-    competency: 1,
+    competency: 3,
     category: ['Tools', 'Data Engineering', 'Data Science'],
   },
   {
@@ -148,6 +148,21 @@ const skills = [
     title: 'LaTeX',
     competency: 4,
     category: ['Languages', 'Tools'],
+  },
+  {
+    title: 'AWS buckets',
+    competency: 4,
+    category: ['Data Engineering', 'Data Science', 'Tools'],
+  },
+  {
+    title: 'AWS SageMakers',
+    competency: 4,
+    category: ['Data Engineering', 'Data Science', 'Tools'],
+  },
+  {
+    title: 'Qlik Sense',
+    competency: 4,
+    category: ['Data Engineering', 'Data Science', 'Tools'],
   },
 ].map((skill) => ({ ...skill, category: skill.category.sort() }));
 

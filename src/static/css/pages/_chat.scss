@@ -229,7 +229,7 @@
 
 
 /* Media query for responsiveness */
-@media (max-width: 390px) {
+@media (max-width: 590px) {
   .chat-popup {
     display: block;
     position: fixed;
@@ -249,7 +249,7 @@
       content: '';
       position: absolute;
       bottom: 0%;
-      right: -3%;
+      right: -2%;
       border-width: 10px;
       border-style: solid;
       border-color: transparent transparent #2d2a2a transparent;

@@ -71,7 +71,7 @@ const Index = () => {
           Hope you&apos;ll enjoy the site.
         </p>
         <p>Don&apos;t have time to explore the site? It&apos;s fine, download my compact resume by
-          clicking below, or ask whatever you want to know to my virtual assistant!
+          clicking below, or ask whatever you want to my virtual assistant!
         </p>
         <p>
           <button type="button" style={{ background: '#ffffff', border: '1px solid #ffffff' }} onClick={handleDownload}>Download Resume</button>
