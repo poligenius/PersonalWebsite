@@ -62,7 +62,7 @@ const Index = () => {
             <h2><Link to="/">About this site</Link></h2>
           </div>
         </header>
-        <p> Welcome. Please feel free to explore my personal site and get to know me better.
+        <p> Welcome! Please feel free to explore my personal site and get to know me better.
           Here I have curated a collection
           of <Link to="/about">my passions</Link>, <Link to="/resume">working experiences</Link> and <Link to="/projects">projects</Link>, giving
           you a glimpse into my life.
@@ -71,7 +71,7 @@ const Index = () => {
           Hope you&apos;ll enjoy the site.
         </p>
         <p>Don&apos;t have time to explore the site? It&apos;s fine, download my compact resume by
-          clicking below, or ask whatever you want to my virtual assistant!
+          clicking below, or ask whatever you want to my virtual assistant (aka Jarvis)!
         </p>
         <p>
           <button type="button" style={{ background: '#ffffff', border: '1px solid #ffffff' }} onClick={handleDownload}>Download Resume</button>

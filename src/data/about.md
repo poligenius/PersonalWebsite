@@ -9,8 +9,8 @@ Since my early years, I have been captivated by the wonders of technology. From 
 
 Throughout my academic journey at [Politecnico di Milano](https://www.polimi.it/corsi/corsi-di-laurea-magistrale/M/2022-ing-ind-inf-magord-270-mi-481-computer-science-and-engineering-ingegneria-informatica), I have dedicated myself to gaining a comprehensive understanding of Computer Science and its potential applications. I have earned a master degree in Computer Science Engineering, and actively participated in various technological projects, which have allowed me to develop a solid foundation in areas such as Machine Learning, Computer Security, Software and Data Engineering. Moreover, I have consistently stayed up-to-date with the latest advancements in the tech industry, constantly seeking opportunities to expand my knowledge and skills.
 
-During the last year of my studies, I had the privilege of starting work as an Artificial Intelligence and Machine Learning Engineer at [PwC](https://www.pwc.com/it/it/), a leading global technology and consulting firm. This experience has been invaluable in further deepening my understanding of the potential of technology and its real-world applications. Working alongside talented professionals, I have had the opportunity to contribute to cutting-edge projects and gain hands-on experience in developing innovative solutions.
-After around one year of work at Price, I moved out,starting a new job as Tech Product Owner at Mediaset, one of the largest Italian Media companies.
+During the last year of my studies, I had the privilege of starting work as an Artificial Intelligence and Machine Learning Engineer at [PwC](https://www.pwc.com/it/it/), a leading global technology and consulting firm.
+After around one year and a half of work at Price, I moved out, starting a new job as Tech Product Owner at Mediaset, one of the largest Italian Media companies.
 
 Of course, my life is not all about work and computer science indeed, I nurture a multitude of passions, some quite common, others decidedly less so... here are a few.
 
@@ -21,7 +21,7 @@ Of course, my life is not all about work and computer science indeed, I nurture 
 - Solve puzzles and play board games (I go crazy for escape rooms).
 - Sports (I've been lucky enough to have practiced a wide array of sports over the years, including beach volley, tennis, soccer, basketball, skiing, swimming, and padel. Unfortunately, I'm terrible at each and every one of them).
 - Playing the piano (I have taken piano lessons for 6 years, so feel free to chat me for a jam session, but please don't ask me to sing eheh).
-- Nerd stuff (videogames, anime, manga and Star Wars).
+- Nerd stuff (Hackathons, videogames, anime, manga and Star Wars).
 - Movies and tv series.
 - [Photography](https://www.instagram.com/marcobalenoo/) (I always travel with my Nikon in order to take pictures of the beautiful places and peoples that I have the pleasure to visit, in 2015 I won Liliana Urtamonti [still nature](https://www.instagram.com/p/1Ql0DrivyoekSE2An1JIdCRMaRkLcDW62WAho0/) photography contest).
 - Financial independence.
@@ -37,6 +37,7 @@ By the age of 21, I had already tasted the flavors of different cultures and exp
 - 2021 - Sicily (Egadi and Trapani) and Switzerland (Grindelwald, Berna and a lot of hikings).
 - 2022 - Sardinia and Ibiza (the wild side) and Venice in December.
 - 2023 - A lot of travels this year! Umbria, wine tastings in Tuscany, Nice, Paris, Amsterdam, Berlin, Munich, Copenhagen and the Norway's fjords (thanks Interrail!).
+- 2024 - An incredible week spent at Faroe islands, such a wonderful and magical place to visit. After that, interrail again (the last time probably), One Country Pass, all around Spain, we visited Barcellona, Valencia, Sevilla, Madrid and San Sebastian, wonderful cities and tons of paellas!
 
 # Fun facts
 

@@ -74,6 +74,16 @@ const data = [
     title: 'berlin',
     image: '/images/gallery/berlin.png',
   },
+  {
+    id: 16,
+    title: 'Faroe',
+    image: '/images/gallery/faroe.png',
+  },
+  {
+    id: 17,
+    title: 'Puffin',
+    image: '/images/gallery/puffin.png',
+  },
 ];
 
 export default data;
