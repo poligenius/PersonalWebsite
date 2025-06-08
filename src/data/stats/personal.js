@@ -52,7 +52,7 @@ const data = [
   {
     key: 'salary',
     label: 'Current salary',
-    value: '40.000 €',
+    value: '44.000 €',
   },
   {
     key: 'location',

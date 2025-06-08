@@ -20,7 +20,7 @@ exports.handler = async (event, context) => {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      "OpenAI-Beta": 'assistants=v1',
+      "OpenAI-Beta": 'assistants=v2',
       }
     });
 
@@ -54,7 +54,7 @@ exports.handler = async (event, context) => {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-        'OpenAI-Beta': 'assistants=v1',
+        'OpenAI-Beta': 'assistants=v2',
       },
       body: JSON.stringify(message),
     })
@@ -105,7 +105,7 @@ exports.handler = async (event, context) => {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-        'OpenAI-Beta': 'assistants=v1',
+        'OpenAI-Beta': 'assistants=v2',
       },
     });
   } catch (error) {
@@ -125,7 +125,7 @@ exports.handler = async (event, context) => {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-          'OpenAI-Beta': 'assistants=v1',
+          'OpenAI-Beta': 'assistants=v2',
         },
       })
       var status =  await status.json();
@@ -138,7 +138,7 @@ exports.handler = async (event, context) => {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-        'OpenAI-Beta': 'assistants=v1',
+        'OpenAI-Beta': 'assistants=v2',
       },
     })
   } catch (error) {
