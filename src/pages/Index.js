@@ -48,7 +48,7 @@ const Index = () => {
   return (
     <Main
       description={"Marco Marini's personal website. Milan based Politecnico graduate, "
-          + 'Tech Product Owner at Mediaset.'}
+          + 'Solution Architect at Mediaset.'}
     >
       <motion.article
         className="post"

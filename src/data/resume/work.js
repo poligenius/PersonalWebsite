@@ -14,12 +14,12 @@
 const work = [
   {
     name: 'Mediaset',
-    position: 'Tech Product Owner',
+    position: 'Solution Architect',
     url: 'https://mediasetitalia.com/',
     startDate: '2023-12-11',
     summary: 'Mediaset is a leading media corporation based in Italy,'
     + ' renowned for its diverse portfolio of television channels and its dedication'
-    + ' to technological innovation. As a Tech Product Owner at Mediaset, I lead cross-functional'
+    + ' to technological innovation. As a Solution Architect at Mediaset, I lead cross-functional'
     + ' teams and coordinate with external providers to develop cutting-edge technological solutions'
     + ' that drive significant return on investment (ROI).',
     highlights: [
@@ -32,7 +32,7 @@ const work = [
       + ' recommendation system deployed on AWS within Mediaset’s cloud.'
       + ' Part of a larger €3 million project, this system assists operations'
       + ' teams in assigning advertisement spots based on customer requests,'
-      + ' with an estimated annual ROI of €5 million.',
+      + ' with a reduction of spots overbooking by 80% after the first year of go-live.',
       'RAG System:  Designed and implemented a system on Google Cloud'
       + ' Platform (GCP) using Gemini 1.5, enabling employees to query and'
       + ' access PowerPoint presentations, PDFs, and other marketing'
@@ -45,6 +45,11 @@ const work = [
       + ' identify opportunities for integrating Generative AI SaaS or custom'
       + ' solutions, aiming to achieve significant savings in full-time'
       + ' equivalents (FTEs) and enhance operational efficiency.',
+      'Established and standardized the department’s technological'
+      + 'ecosystem, defining best practices for libraries, tooling, and CI/CD'
+      + 'workflows. Led the transition from a Git Flow to a trunk-based'
+      + 'development model, resulting in a 35% increase in release frequency'
+      + 'and 40% reduction of post-release incidents within six months.',
     ],
   },
   {
