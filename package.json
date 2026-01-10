@@ -58,7 +58,7 @@
     "netlify-cli": "^17.0.1",
     "react-snap": "^1.23.0",
     "rimraf": "^5.0.1",
-    "sass": "^1.63.6",
+    "sass": "^1.69.3",
     "source-map-explorer": "^2.5.3"
   },
   "browserslist": {
